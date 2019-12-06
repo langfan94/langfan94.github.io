@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://myblog.xfweb.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="gulp自动化构建工具 输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。  gulp是一个有关Stream（数据流）的构建系统,gulp本身使用了Node的Stream. 1gulp.src(&quot;app.js&quot;).pipe(babel()) 这里sr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp">
+<meta property="og:url" content="http://myblog.xfweb.xyz/2018/07/26/mygulp/index.html">
+<meta property="og:site_name" content="xfBlog">
+<meta property="og:description" content="gulp自动化构建工具 输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。  gulp是一个有关Stream（数据流）的构建系统,gulp本身使用了Node的Stream. 1gulp.src(&quot;app.js&quot;).pipe(babel()) 这里sr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-06T03:29:15.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp">
+<meta name="twitter:description" content="gulp自动化构建工具 输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。  gulp是一个有关Stream（数据流）的构建系统,gulp本身使用了Node的Stream. 1gulp.src(&quot;app.js&quot;).pipe(babel()) 这里sr">
+
+<link rel="canonical" href="http://myblog.xfweb.xyz/2018/07/26/mygulp/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>gulp | xfBlog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xfBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/07/26/mygulp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gulp
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-26 14:32:21" itemprop="dateCreated datePublished" datetime="2018-07-26T14:32:21+00:00">2018-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-06 03:29:15" itemprop="dateModified" datetime="2019-12-06T03:29:15+00:00">2019-12-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="gulp自动化构建工具"><a href="#gulp自动化构建工具" class="headerlink" title="gulp自动化构建工具"></a>gulp自动化构建工具</h1><blockquote>
+<p>输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。</p>
+</blockquote>
+<p>gulp是一个有关Stream（数据流）的构建系统,gulp本身使用了Node的Stream.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(<span class="string">"app.js"</span>).pipe(babel())</span><br></pre></td></tr></table></figure>
+<p>这里src(“app.js”)作为源，作为输入流到babel()去进行处理。<br>这种流的构建方式给我们带来了方便。</p>
+<p>而这个stream 是 Vinyl files。</p>
+<blockquote>
+<p>Vinyl is a very simple metadata object that describes a file.<br>翻译:Vinyl 是一种用来描述文件的非常简便的中介对象。</p>
+</blockquote>
+<p>常用的几个plugin:</p>
+<ul>
+<li>browserify</li>
+<li>vinyl-source-stream</li>
+<li>rename</li>
+<li>gulp-babel</li>
+</ul>
+<p>这里主要介绍一下browserify和vinyl-source-stream</p>
+<h2 id="browserify"><a href="#browserify" class="headerlink" title="browserify"></a>browserify</h2><blockquote>
+<p>Browserify lets you require(‘modules’) in the browser by bundling up all of your dependencies.</p>
+</blockquote>
+<blockquote>
+<p>Browserify 通过打包所有的依赖,让你们用require(‘modules’)的方式在浏览器中获取模块。</p>
+</blockquote>
+<h2 id="vinyl-source-stream"><a href="#vinyl-source-stream" class="headerlink" title="vinyl-source-stream"></a>vinyl-source-stream</h2><blockquote>
+<p>Take, for example, browserify. There are the gulp-browserify and gulpify plugins, which you can use in combination with gulp to get browserify working in your build. Unfortunately, these plugins come with additional overhead: an extra GitHub repository, npm module, maintainer, tests, semantics, etc.</p>
+</blockquote>
+<p>使用vinyl-source-stream　能够很快的帮我们处理例如browserify这些插件的额外的头，例如an extra GitHub repository</p>
+<p>自己配置的一个简单的gulp的配置文件如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>);</span><br><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</span><br><span class="line"><span class="keyword">var</span> browserify = <span class="built_in">require</span>(<span class="string">"browserify"</span>);</span><br><span class="line"><span class="keyword">var</span> source = <span class="built_in">require</span>(<span class="string">'vinyl-source-stream'</span>)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"babel"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">"app.js"</span>)</span><br><span class="line">    .pipe(babel())</span><br><span class="line">    .pipe(rename(<span class="string">'main.js'</span>))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"./"</span>));</span><br><span class="line">    cb(err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'browserify'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> browserify(&#123;</span><br><span class="line">    entries: <span class="string">'main.js'</span>,</span><br><span class="line">    debug: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">    .bundle()</span><br><span class="line">    .pipe(source(<span class="string">'main.js'</span>))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>));</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'babel'</span>, <span class="string">'browserify'</span>])</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/07/23/wechat-program/" rel="prev" title="微信小程序WXS">
+      <i class="fa fa-chevron-left"></i> 微信小程序WXS
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/29/input-iview/" rel="next" title="input_iview">
+      input_iview <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gulp自动化构建工具"><span class="nav-number">1.</span> <span class="nav-text">gulp自动化构建工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#browserify"><span class="nav-number">1.1.</span> <span class="nav-text">browserify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vinyl-source-stream"><span class="nav-number">1.2.</span> <span class="nav-text">vinyl-source-stream</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xf</p>
+  <div class="site-description" itemprop="description">To improve is to change~!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xf</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

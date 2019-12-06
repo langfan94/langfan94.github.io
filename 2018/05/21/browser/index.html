@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://myblog.xfweb.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="浏览器内核 浏览器内核由渲染引擎和JS引擎组成，不同的浏览器、即使同一浏览器不同型号可能渲染引擎和JS引擎都不一样。  渲染引擎 Trident渲染引擎 –&amp;gt; 老版本IE系列浏览器 Edge渲染引擎 -&amp;gt; Win10中IE浏览器 Gecko渲染引擎 –&amp;gt; Mozilla Firefox Presto渲染引擎 –&amp;gt; Opera KHTML渲染引擎 –&amp;gt; 早期的Safaf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器内核">
+<meta property="og:url" content="http://myblog.xfweb.xyz/2018/05/21/browser/index.html">
+<meta property="og:site_name" content="xfBlog">
+<meta property="og:description" content="浏览器内核 浏览器内核由渲染引擎和JS引擎组成，不同的浏览器、即使同一浏览器不同型号可能渲染引擎和JS引擎都不一样。  渲染引擎 Trident渲染引擎 –&amp;gt; 老版本IE系列浏览器 Edge渲染引擎 -&amp;gt; Win10中IE浏览器 Gecko渲染引擎 –&amp;gt; Mozilla Firefox Presto渲染引擎 –&amp;gt; Opera KHTML渲染引擎 –&amp;gt; 早期的Safaf">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://myblog.xfweb.xyz/public/images/browserHistory.png">
+<meta property="og:image" content="http://myblog.xfweb.xyz/public/images/renderFunction.png">
+<meta property="og:image" content="http://myblog.xfweb.xyz/public/images/urlToDom.png">
+<meta property="og:image" content="http://myblog.xfweb.xyz/public/images/htmlExplain.png">
+<meta property="og:image" content="http://myblog.xfweb.xyz/public/images/cssToDom.png">
+<meta property="og:updated_time" content="2019-12-06T03:29:15.710Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器内核">
+<meta name="twitter:description" content="浏览器内核 浏览器内核由渲染引擎和JS引擎组成，不同的浏览器、即使同一浏览器不同型号可能渲染引擎和JS引擎都不一样。  渲染引擎 Trident渲染引擎 –&amp;gt; 老版本IE系列浏览器 Edge渲染引擎 -&amp;gt; Win10中IE浏览器 Gecko渲染引擎 –&amp;gt; Mozilla Firefox Presto渲染引擎 –&amp;gt; Opera KHTML渲染引擎 –&amp;gt; 早期的Safaf">
+<meta name="twitter:image" content="http://myblog.xfweb.xyz/public/images/browserHistory.png">
+
+<link rel="canonical" href="http://myblog.xfweb.xyz/2018/05/21/browser/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>浏览器内核 | xfBlog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xfBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/21/browser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器内核
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-21 17:15:26" itemprop="dateCreated datePublished" datetime="2018-05-21T17:15:26+00:00">2018-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-06 03:29:15" itemprop="dateModified" datetime="2019-12-06T03:29:15+00:00">2019-12-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><blockquote>
+<p>浏览器内核由渲染引擎和JS引擎组成，不同的浏览器、即使同一浏览器不同型号可能渲染引擎和JS引擎都不一样。</p>
+</blockquote>
+<h2 id="渲染引擎"><a href="#渲染引擎" class="headerlink" title="渲染引擎"></a>渲染引擎</h2><ol>
+<li>Trident渲染引擎 –&gt; 老版本IE系列浏览器</li>
+<li>Edge渲染引擎 -&gt; Win10中IE浏览器</li>
+<li>Gecko渲染引擎 –&gt; Mozilla Firefox</li>
+<li>Presto渲染引擎 –&gt; Opera</li>
+<li>KHTML渲染引擎 –&gt; 早期的Safafi和Google Chrome</li>
+<li>Webkit渲染引擎 -&gt; 2001年后的Safari和Chrome以及国内的一些浏览器</li>
+<li>Blink渲染引擎 -&gt; 新版本的Chromium浏览器Google项目</li>
+</ol>
+<h2 id="JavaScript引擎"><a href="#JavaScript引擎" class="headerlink" title="JavaScript引擎"></a>JavaScript引擎</h2><ol>
+<li>JScript引擎 –&gt; IE系列浏览器</li>
+<li>spiderMonkey引擎 –&gt; Mozilla Firefox</li>
+<li>V8引擎 –&gt; Google Chrome</li>
+<li>linear b/futhark引擎 –&gt; Opera</li>
+</ol>
+<h2 id="浏览器渲染引擎发展历史"><a href="#浏览器渲染引擎发展历史" class="headerlink" title="浏览器渲染引擎发展历史"></a>浏览器渲染引擎发展历史</h2><p><img src="/public/images/browserHistory.png" alt="浏览器渲染引擎发展历史"></p>
+<h2 id="浏览器的渲染引擎及依赖模块分析"><a href="#浏览器的渲染引擎及依赖模块分析" class="headerlink" title="浏览器的渲染引擎及依赖模块分析"></a>浏览器的渲染引擎及依赖模块分析</h2><p><img src="/public/images/renderFunction.png" alt="浏览器的渲染引擎及依赖模块分析"></p>
+<h2 id="输入URL到页面展示简图"><a href="#输入URL到页面展示简图" class="headerlink" title="输入URL到页面展示简图"></a>输入URL到页面展示简图</h2><p><img src="/public/images/urlToDom.png" alt="输入URL到页面展示简图"></p>
+<h3 id="浏览器内核各部分解释"><a href="#浏览器内核各部分解释" class="headerlink" title="浏览器内核各部分解释"></a>浏览器内核各部分解释</h3><blockquote>
+<p>HTML解释器：解释HTML文本的解释器，主要作用是将HTML文本解释成DOM树，DOM是一种文档表示方法。</p>
+<p>CSS解释器：级联样式表的解释器，它的作用是为DOM中的各个元素对象计算出样式信息，从而为计算最后网页的布局提供基础设施。</p>
+<p>布局：在DOM创建之后，webkit需要将其中的元素对象同样式信息结合起来，计算它们的大小&gt; 位置等布局信息，形成一个能够表示这所有信息的内部比偶表示模型。</p>
+<p>JavaScript引擎：使用JavaScript代码可以修改网页的内容，也能修改CSS的信息，JavaScript引擎能过解释JavaScript代码并通过DOM接口和CSSOM接口来修改网页内容和样式信息，从而改变渲染结果。</p>
+<p>绘图：使用图形库将布局计算后的各个网页的节点绘制成图像结果。</p>
+</blockquote>
+<h3 id="HTML解释器"><a href="#HTML解释器" class="headerlink" title="HTML解释器"></a>HTML解释器</h3><p><img src="/public/images/htmlExplain.png" alt="HTML解释器"></p>
+<blockquote>
+<p>首先是字节流，经过解码之后是字符流，然后通过词法分析器会被解释成词语（Tokens），时候经过分析器构建成节点，最后这些节点被组建成一棵DOM树。</p>
+<p>词法分析：HTMLTokenizer 类（作用是词法分析，类似于状态机），输入的是字符串，输出的是一个个的词语。</p>
+<p>XSSAuditor验证词语：XSSAuditor （验证词语流Token Stream）XSS指的是Cross Site Security，主要是针对安全方面的考虑。</p>
+<p>词语到节点：webkit用来构建DOM节点，这一步骤由HTMLDocumentParser 类调用 HTMLTreeBuilder 类的 constructTree的函数来实现。</p>
+<p>节点到DOM树：树中的元素节点创建属性节点等工作由HTMLConstructionSite类来完成，该类中包含一个 HTMLElementStack 作为保存元素节点的栈。</p>
+<p>JavaScript的执行：webkit将DOM树创建过程中需要执行得我Javascript代码交由HTMLScriptRunner类来负责。</p>
+<p>DOM的事件机制：webkit中用EventTarget类来表示DOM规范中Events部分定义的事件目标，Node 节点继承自 EventTarget类，所以Node拥有EventTarget类的相关的方法。</p>
+</blockquote>
+<h3 id="CSS解释器和样式布局"><a href="#CSS解释器和样式布局" class="headerlink" title="CSS解释器和样式布局"></a>CSS解释器和样式布局</h3><blockquote>
+<p>css解释器和规则匹配处于DOM树建立之后，RenderObject树建立之前，css解释器解释后的结果会保存起来，然后RenderObject树基于该结果来进行规范匹配和布局计算。</p>
+</blockquote>
+<p><img src="/public/images/cssToDom.png" alt="CSS解释器和样式布局"></p>
+<h3 id="CSSOM（CSS-Object-Model）"><a href="#CSSOM（CSS-Object-Model）" class="headerlink" title="CSSOM（CSS Object Model）"></a>CSSOM（CSS Object Model）</h3><blockquote>
+<p>CSSOM视图模块(CSSOM View Module)定义了一些 API，Web 开发人员使用这些 API 可以进行检查，也可以以编程方式更改文档及其内容的视觉属性，包括布局框定位、视区宽度和元素滚动。</p>
+<p>document.styleSheets 可以查看当前页面的StyleSheetList对象，每个link、style都会产生 CSSStyleSheet 作为 StyleSheetList对象的value。</p>
+</blockquote>
+<h3 id="CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）"><a href="#CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）" class="headerlink" title="CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）"></a>CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）</h3><blockquote>
+<p>DocumentStyleSheetCollection类（属于Document类），该类包含了所有CSS样式表，还包括了webkit的内部表示类CSSStyleSheet，它包含了CSS的href、类型、内容等信息。</p>
+<p>CSS解释过程：css字符串经过css解释器处理后变成渲染引擎的内部规则的过程，使用CSSParser类来负责该过程。</p>
+<p>在解释网页中自定义的CSS样式之前，实际上webkit渲染引擎会为每个网页设置一个默认样式，这也是我们为什么要重置浏览器样式的根本原因。</p>
+<p>规则匹配：StyleResolver类为DOM的元素节点匹配样式，StyleResolver类根据元素的信息，例如标签名、类别等，从样式规则中查找最匹配的规则，然后将样式信息保存到新建的RenderStyle对象中。最后，这些RenderStyle对象被RenderObject类所管理和使用。</p>
+<p>其中，规则的匹配则是由ElementRuleCollector类来计算并获得，它根据元素的属性等信息，并从DocumentRuleSets类中获取规则集合，依次按照ID、CLASS、标签等选择器信息逐次匹配获得元素的样式。</p>
+<p>然后webkit对这些规则进行排序，对于该元素需要的样式属性，webkit选择从高优先级规则中选取，并将样式属性值返回。</p>
+<p>这里，我引入一个不太相关的知识点，块格式化上下文（Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的部分，是块级盒布局发生的区域，也是浮动元素与其他元素交互的区域。</p>
+</blockquote>
+<h3 id="webkit布局"><a href="#webkit布局" class="headerlink" title="webkit布局"></a>webkit布局</h3><blockquote>
+<p>当webkit创建RenderObject对象之后，每个对象是不知道自己的位置、大小等信息的，webkit根据盒模型来计算他们的位置、大小等信息的过程称为布局计算/排版。</p>
+<p>布局计算分类：第一类是对整个RenderObject树进行的计算；第二类是对RenderObject树中某个子树的计算，常见于文本元素或者overflow：auto块的计算。<br>布局计算：布局计算是一个递归的过程，这是因为一个节点的大小通常需要先计算它的子节点的位置、大小等信息。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/05/21/closure-js/" rel="prev" title="闭包">
+      <i class="fa fa-chevron-left"></i> 闭包
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/05/28/input-url/" rel="next" title="从输入URL到页面加载完成的过程中都发生了什么">
+      从输入URL到页面加载完成的过程中都发生了什么 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器内核"><span class="nav-number">1.</span> <span class="nav-text">浏览器内核</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染引擎"><span class="nav-number">1.1.</span> <span class="nav-text">渲染引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript引擎"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染引擎发展历史"><span class="nav-number">1.3.</span> <span class="nav-text">浏览器渲染引擎发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的渲染引擎及依赖模块分析"><span class="nav-number">1.4.</span> <span class="nav-text">浏览器的渲染引擎及依赖模块分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入URL到页面展示简图"><span class="nav-number">1.5.</span> <span class="nav-text">输入URL到页面展示简图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器内核各部分解释"><span class="nav-number">1.5.1.</span> <span class="nav-text">浏览器内核各部分解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML解释器"><span class="nav-number">1.5.2.</span> <span class="nav-text">HTML解释器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS解释器和样式布局"><span class="nav-number">1.5.3.</span> <span class="nav-text">CSS解释器和样式布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSSOM（CSS-Object-Model）"><span class="nav-number">1.5.4.</span> <span class="nav-text">CSSOM（CSS Object Model）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）"><span class="nav-number">1.5.5.</span> <span class="nav-text">CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit布局"><span class="nav-number">1.5.6.</span> <span class="nav-text">webkit布局</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xf</p>
+  <div class="site-description" itemprop="description">To improve is to change~!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xf</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
