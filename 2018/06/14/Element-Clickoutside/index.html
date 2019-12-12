@@ -32,6 +32,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -52,7 +53,7 @@
 <meta property="og:site_name" content="xfBlog">
 <meta property="og:description" content="Element 点击非弹框对象时触发弹框关闭事件 在使用Element 组件库的时候，可以发现点击非弹框对象的时候会触发弹框隐藏事件，但是在对应的封装包中却发现原来自定义了指令，进行管理点击非当前元素的事件触发，如图:    接下来看看Clickoutside.js 文件中怎么实现点击事件:  1234567891011121314151617181920212223242526272829303">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T03:39:38.671Z">
+<meta property="og:updated_time" content="2019-12-12T02:51:22.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Element-Clickoutside">
 <meta name="twitter:description" content="Element 点击非弹框对象时触发弹框关闭事件 在使用Element 组件库的时候，可以发现点击非弹框对象的时候会触发弹框隐藏事件，但是在对应的封装包中却发现原来自定义了指令，进行管理点击非当前元素的事件触发，如图:    接下来看看Clickoutside.js 文件中怎么实现点击事件:  1234567891011121314151617181920212223242526272829303">
@@ -65,9 +66,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -200,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -261,6 +260,28 @@
           </div>
           
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
           
   
@@ -298,12 +319,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

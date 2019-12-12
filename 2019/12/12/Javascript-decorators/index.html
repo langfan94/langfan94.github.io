@@ -46,19 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="闭包 　闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，…直至作为作用域链终点的全局执行环境。  闭包与变量 作用域链的这种配置机制引出了一个副作用,即闭包只能去地包含函数中任何变量的最后一个值。  demo1234567891011">
+  <meta name="description" content="Summary Decorators make it possible to annotate and modify classes and properties at design time.  A decorator is:  an expression that evaluates to a function that takes the target, name, and decorato">
+<meta name="keywords" content="decorators">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包">
-<meta property="og:url" content="http://myblog.xfweb.xyz/2018/05/21/closure-js/index.html">
+<meta property="og:title" content="Javascript-decorators">
+<meta property="og:url" content="http://myblog.xfweb.xyz/2019/12/12/Javascript-decorators/index.html">
 <meta property="og:site_name" content="xfBlog">
-<meta property="og:description" content="闭包 　闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，…直至作为作用域链终点的全局执行环境。  闭包与变量 作用域链的这种配置机制引出了一个副作用,即闭包只能去地包含函数中任何变量的最后一个值。  demo1234567891011">
+<meta property="og:description" content="Summary Decorators make it possible to annotate and modify classes and properties at design time.  A decorator is:  an expression that evaluates to a function that takes the target, name, and decorato">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-12-12T02:51:22.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="闭包 　闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，…直至作为作用域链终点的全局执行环境。  闭包与变量 作用域链的这种配置机制引出了一个副作用,即闭包只能去地包含函数中任何变量的最后一个值。  demo1234567891011">
+<meta name="twitter:title" content="Javascript-decorators">
+<meta name="twitter:description" content="Summary Decorators make it possible to annotate and modify classes and properties at design time.  A decorator is:  an expression that evaluates to a function that takes the target, name, and decorato">
 
-<link rel="canonical" href="http://myblog.xfweb.xyz/2018/05/21/closure-js/">
+<link rel="canonical" href="http://myblog.xfweb.xyz/2019/12/12/Javascript-decorators/">
 
 
 <script id="page-configurations">
@@ -70,7 +71,7 @@
   };
 </script>
 
-  <title>闭包 | xfBlog</title>
+  <title>Javascript-decorators | xfBlog</title>
   
 
 
@@ -169,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/21/closure-js/">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/12/Javascript-decorators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -182,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          闭包
+          Javascript-decorators
         </h1>
 
         <div class="post-meta">
@@ -191,16 +192,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2018-05-21 11:50:48" itemprop="dateCreated datePublished" datetime="2018-05-21T11:50:48+00:00">2018-05-21</time>
+              <time title="Created: 2019-12-12 10:42:04 / Modified: 02:51:22" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:04+00:00">2019-12-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
-              </span>
 
           
 
@@ -213,17 +208,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><blockquote>
-<p>　闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，…直至作为作用域链终点的全局执行环境。</p>
+        <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><blockquote>
+<p>Decorators make it possible to annotate and modify classes and properties at design time.</p>
 </blockquote>
-<h2 id="闭包与变量"><a href="#闭包与变量" class="headerlink" title="闭包与变量"></a>闭包与变量</h2><blockquote>
-<p>作用域链的这种配置机制引出了一个副作用,即闭包只能去地包含函数中任何变量的最后一个值。</p>
-</blockquote>
-<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> re = createFunctions();</span><br><span class="line">re[<span class="number">0</span>]();   <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
-<h3 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>　在调用每个匿名函数时, 我们传入了变量i。由于函数参数是按值传递的,所以会将变量i的当前值复制给参数num.而在这个匿名函数内部,又创建返回了一个访问num的闭包.这样一来,result 数组中的每个函数都有自己num变量的一个副本,因此就可以返回各自不同的数值了.</p>
-</blockquote>
+<p>A decorator is:</p>
+<ul>
+<li>an expression</li>
+<li>that evaluates to a function</li>
+<li>that takes the target, name, and decorator descriptor as arguments</li>
+<li>and optionally returns a decorator descriptor to install on the target object</li>
+</ul>
+<p>A decorator precedes the syntax that defines a property:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  @readonly</span><br><span class="line">  name() &#123; <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.first&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.last&#125;</span>`</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now, before installing the descriptor onto Person.prototype, the engine first invokes the decorator:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> description = &#123;</span><br><span class="line">  type: <span class="string">'method'</span>,</span><br><span class="line">  initializer: <span class="function"><span class="params">()</span> =&gt;</span> specifiedFunction,</span><br><span class="line">  enumerable: <span class="literal">false</span>,</span><br><span class="line">  configurable: <span class="literal">true</span>,</span><br><span class="line">  writable: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">description = readonly(Person.prototype, <span class="string">'name'</span>, description) || description;</span><br><span class="line">defineDecoratedProperty(Person.prototype, <span class="string">'name'</span>, description);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineDecoratedProperty</span>(<span class="params">target, &#123; initializer, enumerable, configurable, writable &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, &#123; <span class="attr">value</span>: initializer(), enumerable, configurable, writable &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The has an opportunity to intercede before the relevant defineProperty actually occurs.</p>
 
     </div>
 
@@ -232,6 +230,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/decorators/" rel="tag"># decorators</a>
+          </div>
 
         
 
@@ -239,13 +240,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/05/15/quickSort/" rel="prev" title="冒泡排序和快速排序">
-      <i class="fa fa-chevron-left"></i> 冒泡排序和快速排序
+    <a href="/2019/12/05/co/" rel="prev" title="co">
+      <i class="fa fa-chevron-left"></i> co
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2018/05/21/browser/" rel="next" title="浏览器内核">
-      浏览器内核 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -305,7 +303,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包与变量"><span class="nav-number">1.1.</span> <span class="nav-text">闭包与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#demo"><span class="nav-number">1.1.1.</span> <span class="nav-text">demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo2"><span class="nav-number">1.1.2.</span> <span class="nav-text">demo2</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

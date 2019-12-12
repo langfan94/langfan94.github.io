@@ -32,6 +32,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -55,7 +56,7 @@
 <meta property="og:image" content="https://git-scm.com/book/en/v2/images/reset-soft.png">
 <meta property="og:image" content="https://git-scm.com/book/en/v2/images/reset-mixed.png">
 <meta property="og:image" content="https://git-scm.com/book/en/v2/images/reset-hard.png">
-<meta property="og:updated_time" content="2019-12-06T03:39:38.675Z">
+<meta property="og:updated_time" content="2019-12-12T02:51:22.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-reset">
 <meta name="twitter:description" content="git reset三棵树 Git 作为一个系统，是以它的一般操作来管理并操纵这三棵树的:     树 用途     HEAD 上一次提交的快照，下一次提交的父结点   Index 预期的下一次提交的快照   Working Directory 沙盒    HEAD HEAD 是当前分支引用的指针，它总是指向该分支上的最后一次提交。 这表示 HEAD 将是下一次提交的父结点。 通常，理解 HEAD">
@@ -69,9 +70,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -204,7 +203,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -297,6 +296,28 @@
           </div>
           
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
           
   
@@ -334,12 +355,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

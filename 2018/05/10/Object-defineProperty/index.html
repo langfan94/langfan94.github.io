@@ -32,6 +32,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -52,7 +53,7 @@
 <meta property="og:site_name" content="xfBlog">
 <meta property="og:description" content="Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。  参数 obj 需要定义属性的对象 prop 需要定义或修改的属性的名字 descriptor 将被定义或修改的属性的描述符 返回值 返回传入函数的对象,即第一个参数obj configurable 当且仅当该属性的 configurable 为 true 时，该属">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T03:39:38.671Z">
+<meta property="og:updated_time" content="2019-12-12T02:51:22.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.defineProperty">
 <meta name="twitter:description" content="Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。  参数 obj 需要定义属性的对象 prop 需要定义或修改的属性的名字 descriptor 将被定义或修改的属性的描述符 返回值 返回传入函数的对象,即第一个参数obj configurable 当且仅当该属性的 configurable 为 true 时，该属">
@@ -65,9 +66,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -200,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -262,6 +261,28 @@
           </div>
           
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
           
   
@@ -299,12 +320,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

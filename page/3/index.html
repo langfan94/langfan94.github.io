@@ -32,6 +32,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -64,9 +65,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isPost: false
   };
 </script>
 
@@ -169,6 +168,131 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/11/createObject/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/11/createObject/" class="post-title-link" itemprop="url">javascript 创建对象</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-11 14:31:59" itemprop="dateCreated datePublished" datetime="2018-05-11T14:31:59+00:00">2018-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><blockquote>
+<p>用函数封装以特定接口创建对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.job = job;</span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = createPerson(<span class="string">'nick'</span>, <span class="number">29</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">let</span> person2 = createPerson(<span class="string">'Greg'</span>, <span class="number">27</span>, <span class="string">'Doctor'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="keyword">this</span>.age = age;</span><br><span class="line"><span class="keyword">this</span>.job = job;</span><br><span class="line"><span class="keyword">this</span>.sayName = sayName;</span><br><span class="line"><span class="comment">// this.sayName = function() &#123;</span></span><br><span class="line"><span class="comment">//     console.log('name is:', this.name);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Nicholas'</span>, <span class="number">29</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Greg'</span>, <span class="number">27</span>, <span class="string">'Doctor'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readPerson</span>(<span class="params">oPerson</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> oPerson) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> oPerson[i] === <span class="string">'function'</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i, oPerson[i]())</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i, oPerson[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readPerson(person1);</span><br><span class="line"></span><br><span class="line">readPerson(person2);</span><br></pre></td></tr></table></figure>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><blockquote>
+<p>每个函数都有一个prototype属性,这个属性是一个指针，指向一个对象,而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Person.prototype.name = <span class="string">'Nicholas'</span>;</span><br><span class="line">    Person.prototype.age = <span class="number">29</span>;</span><br><span class="line">    Person.prototype.job = <span class="string">'Software Engineer'</span>;</span><br><span class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName();      <span class="comment">// 'Nicholas'</span></span><br><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName();      <span class="comment">// 'Nicholas'</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName == person2.sayName);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>person1和person2 的内部属性<em>proto</em>(read virtual) 指向Person prototype; Person prototype.constructor 指向Person<br>constructor 属性也是共享的,也可以通过实例共享。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">person1.name = <span class="string">'KKK'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person1.name); <span class="comment">// "KKK"  -----来自实例</span></span><br><span class="line"><span class="keyword">delete</span> person1.name;</span><br><span class="line"><span class="built_in">console</span>.log(person1.name); <span class="comment">// "Nicholas"  -----来自原型</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.name); <span class="comment">// "Nicholas"  -----来自原型</span></span><br><span class="line"><span class="built_in">console</span>(<span class="string">'name'</span> <span class="keyword">in</span> person1);<span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型与in操作符"><a href="#原型与in操作符" class="headerlink" title="原型与in操作符　"></a>原型与in操作符　</h3><blockquote>
+<p>有两种方式使用in操作符: 单独使用和在for-in循环中使用。在单独使用时,in操作符会在通过对象能够访问给定属性时返回true, 无论该属性存在于实例中还是原型中 </p>
+</blockquote>
+<h3 id="原型的动态性"><a href="#原型的动态性" class="headerlink" title="原型的动态性"></a>原型的动态性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = <span class="keyword">new</span> Person();</span><br><span class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;</span><br><span class="line">friend.sayHi();  <span class="comment">// "hi"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在原型中查找值的过程是一次搜索</p>
+</blockquote>
+<h3 id="原生对象的原型"><a href="#原生对象的原型" class="headerlink" title="原生对象的原型"></a>原生对象的原型</h3><blockquote>
+<p>所有原生的引用类型(Object、Array、String,　等等) 都在其构造函数的原型上定义了方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>.prototype.sort); <span class="comment">// "function"</span></span><br></pre></td></tr></table></figure>
+<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="keyword">this</span>.friends = [<span class="string">"Shelby"</span>, <span class="string">"Count"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Person,</span><br><span class="line">    sayName: function() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Nicholas'</span>, <span class="number">27</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Greg'</span>, <span class="number">22</span>, <span class="string">"Doctor"</span>);</span><br><span class="line">person1.friends.push(<span class="string">"Van"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1.friends);  <span class="comment">// "Shelby, Count, Van"</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.friends);  <span class="comment">// "Shelby, Count"</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.friends === person2.friends);  <span class="comment">// false;</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName === person2.sayName);  <span class="comment">// true;</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">'function'</span>) &#123;</span><br><span class="line">        Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'this.name'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> friend = <span class="keyword">new</span> Person(<span class="string">'Nicholas'</span>, <span class="number">29</span>, <span class="string">'software Engineer'</span>);</span><br><span class="line">friend.sayName();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只有在sayName()方法不存在的情况下,才能将它添加到原型当中去.</p>
+</blockquote>
+<h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpecialArray</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> values = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    values.push.apply(values, <span class="built_in">arguments</span>);</span><br><span class="line">    values.toPipedString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">'|'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> colors = <span class="keyword">new</span> SpecialArray(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(colors.toPipedString());  <span class="comment">// "red|blue|green"</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>返回的对象和构造函数或者与构造函数的原型属性之间没有关系。</li>
+<li>构造函数返回的对象与在构造函数外部创建的对象没有什么不同。</li>
+<li>不能依赖instanceof操作符确定对象类型。</li>
+<li>末尾的return 语句，可以重写调用构造函数时返回的值。</li>
+</ol>
+<h3 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> friend = Person(<span class="string">'Nicholas'</span>, <span class="number">29</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line">friend.sayName();  <span class="comment">// 'Nicholas'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>所谓的稳妥对象，指的是没有公共属性，而且其方法也不引用this的对象，不使用new操作符号调用构造函数。在这种模式创建的对象中，除了使用sayName()方法之外，没有其他办法访问name的值。</p>
+</blockquote>
+<h3 id="使用原型链实现继承出现的问题"><a href="#使用原型链实现继承出现的问题" class="headerlink" title="使用原型链实现继承出现的问题"></a>使用原型链实现继承出现的问题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">subType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"><span class="keyword">let</span> instance1 = <span class="keyword">new</span> SubType();</span><br><span class="line">instance1.colors.push(<span class="string">'black'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors);  <span class="comment">// ['red','blue','green','black']</span></span><br><span class="line"><span class="keyword">let</span> instance2 = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors);  <span class="comment">// ['red','blue','green','black']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。</p>
+</blockquote>
+<h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><blockquote>
+<p>通过使用apply()和call()方法在新创建的对象上执行构造函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 继承了SuperType</span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> instance1 = <span class="keyword">new</span> SubType();</span><br><span class="line">instance1.colors.push(<span class="string">'black'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors); <span class="comment">// ['red','blue','green','black']</span></span><br><span class="line"><span class="keyword">let</span> instance2 = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors); <span class="comment">// ['red','blue','green']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>借用构造函数的缺点　方法都在构造函数中定义,因此函数复用就无从谈起。</p>
+</blockquote>
+<h3 id="组合继承函数"><a href="#组合继承函数" class="headerlink" title="组合继承函数"></a>组合继承函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line">SubType.prototype.constructor = SubType;</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> instance1 = <span class="keyword">new</span> SubType(<span class="string">'Nicholas'</span>, <span class="number">29</span>);</span><br><span class="line">instance1.colors.push(<span class="string">'black'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance1.colors); <span class="comment">// ['red', 'blue', 'green', 'black']</span></span><br><span class="line">instance1.sayName();   <span class="comment">// 'Nicholas';</span></span><br><span class="line">instance1.sayAge();  <span class="comment">// 29</span></span><br><span class="line"><span class="keyword">let</span> instance2 = <span class="keyword">new</span> SubType(<span class="string">'Greg'</span>, <span class="number">27</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance2.colors); <span class="comment">// ['red', 'blue', 'green']</span></span><br><span class="line">instance2.sayName();   <span class="comment">// 'Greg';</span></span><br><span class="line">instance2.sayAge();  <span class="comment">// 27</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>instanceof 和　isPrototypeOf() 也能够识别基于组合继承创建的对象</p>
+</blockquote>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    friends: [<span class="string">'Shelby'</span>, <span class="string">'Court'</span>, <span class="string">'Van'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> anotherPerson = <span class="built_in">Object</span>.create(person);</span><br><span class="line">anotherPerson.name = <span class="string">'Greg'</span>;</span><br><span class="line">anotherPerson.friends.push(<span class="string">'Rob'</span>);</span><br><span class="line"><span class="keyword">let</span> yetAnotherPerson = <span class="built_in">Object</span>.create(person);</span><br><span class="line">yetAnotherPerson.name = <span class="string">'Linda'</span>;</span><br><span class="line">yetAnotherPerson.friends.push(<span class="string">'Barbie'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.friends); <span class="comment">// ['Shelby', 'Court', 'Van', 'Rob', 'Barbie']</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Object.create() 方法第二个参数与Object.defineProperties() 方法第二个参数格式相同</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    friends: [<span class="string">'Shelby'</span>, <span class="string">'Court'</span>, <span class="string">'Van'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> anotherPerson = <span class="built_in">Object</span>.create(person, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">"Greg"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(anotherPerson.name); <span class="comment">// 'Greg'</span></span><br></pre></td></tr></table></figure>
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> clone = object(original);</span><br><span class="line">    clone.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"hi"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> clone; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    friends: [<span class="string">'Shelby'</span>, <span class="string">'Court'</span>, <span class="string">'Van'</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> anotherPerson = createAnother(person);</span><br><span class="line">anotherPerson.sayHi(); <span class="comment">// 'hi'</span></span><br></pre></td></tr></table></figure>
+<h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]; </span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);        <span class="comment">// 第二次调用SuperType()</span></span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();    <span class="comment">// 第一次调用SuperType()　</span></span><br><span class="line">SubType.prototype.constructor = SubType;</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="寄生组合式继承基本模式如下："><a href="#寄生组合式继承基本模式如下：" class="headerlink" title="寄生组合式继承基本模式如下："></a>寄生组合式继承基本模式如下：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType, superType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> prototype = object(superType.prototype); <span class="comment">// 创建对象</span></span><br><span class="line">    prototype.constructor = subType;             <span class="comment">// 增强对象</span></span><br><span class="line">    subType.prototype = prototype;               <span class="comment">// 指定对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/10/git-reset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,7 +324,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -307,7 +431,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -393,7 +517,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 03:39:38" itemprop="dateModified" datetime="2019-12-06T03:39:38+00:00">2019-12-06</time>
+                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
               </span>
 
           
@@ -449,6 +573,28 @@
           </div>
           
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
           
   
@@ -485,12 +631,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

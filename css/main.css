@@ -1163,7 +1163,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff5dff;
+  background: #cd83b3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1750,23 +1750,22 @@ pre .javascript .function {
   width: 100%;
 }
 .post-gallery {
-  border-collapse: separate;
-  display: table;
-  table-layout: fixed;
-  width: 100%;
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
 }
-.post-gallery .post-gallery-img {
+@media (max-width: 767px) {
+  .post-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.post-gallery a {
   border: 0;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
 }
-.post-gallery .post-gallery-img img {
-  max-height: 100%;
-  max-width: 100%;
-}
-.post-gallery-row {
-  display: table-row;
+.post-gallery img {
+  margin: 0;
 }
 .posts-expand .post-header {
   font-size: 1.125em;
