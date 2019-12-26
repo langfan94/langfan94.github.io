@@ -389,18 +389,12 @@ code {
 .highlight pre {
   border: 0;
   margin: 0;
-  padding: 0;
+  padding: 10px 0;
 }
 .highlight table {
   border: 0;
   margin: 0;
   width: auto;
-}
-.highlight tr:first-child pre {
-  padding-top: 10px;
-}
-.highlight tr:last-child pre {
-  padding-bottom: 10px;
 }
 .highlight td {
   border: 0;
@@ -428,16 +422,18 @@ code {
 .highlight figcaption a:hover {
   border-bottom-color: #4d4d4c;
 }
+.highlight .gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 .highlight .gutter pre {
   background: #eff2f3;
   color: #869194;
   padding-left: 10px;
   padding-right: 10px;
   text-align: right;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 .highlight .code pre {
   background: #f7f7f7;
@@ -1163,7 +1159,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cd83b3;
+  background: #78b6ed;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

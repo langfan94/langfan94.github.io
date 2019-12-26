@@ -168,6 +168,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/21/cors/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/21/cors/" class="post-title-link" itemprop="url">跨域技术</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-06-21 14:45:29" itemprop="dateCreated datePublished" datetime="2018-06-21T14:45:29+00:00">2018-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="其他跨域技术"><a href="#其他跨域技术" class="headerlink" title="其他跨域技术"></a>其他跨域技术</h1><h2 id="图ping"><a href="#图ping" class="headerlink" title="图ping"></a>图ping</h2><blockquote>
+<p>使用\&lt;img>标签实现跨域，使用它们的onload和onerror事件处理程序来确定是否收到了相应，通过图像Ping,浏览器得不到任何具体的数据,但通过监听load和error事件,它能知道响应是什么时候接收道的。</p>
+</blockquote>
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.onload = img.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Done!'</span>);</span><br><span class="line">&#125;</span><br><span class="line">img.src = <span class="string">"http://www.example.com/test?name=Nicholas"</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里创建了一个Image的实例,然后将onload 和　onerror事件处理程序指定为同一个函数。这样无论是什么响应,只要请求完成,就能得到通知.请求从设置src属性的那一刻开始,而这个例子在请求中发送了一个name参数。<br>图像ping最常用于跟踪用户点击页面或动态广告曝光次数。图像Ping有两个主要的缺点,一是只能发送Get请求,二是无法访问服务器的响应文本。</p>
+</blockquote>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><blockquote>
+<p>JSONP 是JSON with padding(填充式JSON或参数式JSON)的简写，是应用JSON的一种新方法</p>
+</blockquote>
+<h3 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleResponse</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'You` are at IP'</span> + response.ip + <span class="string">", which is in"</span> + response.city + <span class="string">", "</span> + response.response.regin_name);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.src = <span class="string">"http://freegeoip.net/json/?callback=handleResponse"</span></span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(script, <span class="built_in">document</span>.body.firstChild);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优点是能够直接访问响应文本,支持在浏览器与服务器之间双向通信。但是缺点有可能在响应中夹带一些恶意代码。H5给\&lt;script>元素新增了一个onerror事件处理程序，但是目前还没有得到任何浏览器的支持。</p>
+</blockquote>
+<h1 id="Comet"><a href="#Comet" class="headerlink" title="Comet"></a>Comet</h1><blockquote>
+<p>指的是一种更高级的Ajax技术,Ajax是一种从页面向服务器请求数据的技术,而Comet则是一种服务器向页面推送数据的技术。Comet能够让信息近乎实时的被推送到页面上,非常适合处理体育比赛的分数和股票的报价。</p>
+</blockquote>
+<blockquote>
+<p>短轮询: 浏览器定时向服务器发送请求<br>长轮询: 页面发起一个请求,然后服务器一直保持连接打开,直到有数据可发送。发送完数据之后,浏览器关闭连接,随即又发起一个到服务器的新请求。<br>Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的整个生命周期内只使用一个HTTP连接.具体来说就是浏览器向服务器发送一个请求,而服务器保持连接打开,然后周期性的向浏览器发送数据。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/14/Element-Clickoutside/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -199,7 +283,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -274,7 +358,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -350,7 +434,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -446,7 +530,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -586,7 +670,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -659,7 +743,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -736,7 +820,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -814,7 +898,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -937,7 +1021,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -963,80 +1047,6 @@
 <p>　在调用每个匿名函数时, 我们传入了变量i。由于函数参数是按值传递的,所以会将变量i的当前值复制给参数num.而在这个匿名函数内部,又创建返回了一个访问num的闭包.这样一来,result 数组中的每个函数都有自己num变量的一个副本,因此就可以返回各自不同的数值了.</p>
 </blockquote>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/15/quickSort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xf">
-      <meta itemprop="description" content="To improve is to change~!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xfBlog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/05/15/quickSort/" class="post-title-link" itemprop="url">冒泡排序和快速排序</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-05-15 15:23:40" itemprop="dateCreated datePublished" datetime="2018-05-15T15:23:40+00:00">2018-05-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><blockquote>
-<p>依次比较相邻的两个元素，如果后一个小于前一个，则交换，这样从头到尾一次，就将最大的放到了末尾。</p>
-</blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2017/5/24/2b79ee330b7276e15152c96e93ffb782?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="冒泡排序图解"></p>
-<p>##　冒泡排序Demo<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 冒泡排序法</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'冒泡排序法共花费了'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">oArr, endIndex</span>) </span>&#123;</span><br><span class="line">    endIndex = <span class="keyword">typeof</span> endIndex !== <span class="string">'number'</span> ? oArr.length - <span class="number">1</span> : endIndex</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= endIndex; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i + <span class="number">1</span> &lt;= endIndex) &#123;</span><br><span class="line">            <span class="keyword">if</span>(oArr[i] &gt; oArr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                swap(oArr, i, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    --endIndex;</span><br><span class="line">    <span class="keyword">if</span>(endIndex &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        bubbleSort(oArr, endIndex)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// console.log('冒泡排序法', oArr);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> oArr2 = arrPro();</span><br><span class="line">bubbleSort(oArr2);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'冒泡排序法共花费了'</span>)       <span class="comment">// 冒泡排序法共花费了: 0.369ms</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><blockquote>
-<p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。快速排序使用分治法（Divide and conquer）策略来把一个串行（list）分为两个子串行（sub-lists）。</p>
-</blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2017/5/24/e091a0dc1b5122f936904027108fa317?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="快速排序图解"></p>
-<h2 id="快速排序Demo1"><a href="#快速排序Demo1" class="headerlink" title="快速排序Demo1"></a>快速排序Demo1</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 快速排序法</span></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'快速排序法共花费了'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">oArray, leftIndex, rightIndex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = oArray.length;</span><br><span class="line">    <span class="keyword">let</span> partitionIndex;</span><br><span class="line">    leftIndex = <span class="keyword">typeof</span> leftIndex !== <span class="string">'number'</span> ? <span class="number">0</span> : leftIndex;</span><br><span class="line">    rightIndex = <span class="keyword">typeof</span> rightIndex !== <span class="string">'number'</span> ? len - <span class="number">1</span> : rightIndex;</span><br><span class="line">    <span class="keyword">if</span>(leftIndex &lt; rightIndex) &#123;</span><br><span class="line">        partitionIndex = partition(oArray, leftIndex, rightIndex);</span><br><span class="line">        <span class="comment">// console.log('partitionIndex', partitionIndex);</span></span><br><span class="line">        quickSort(oArray, leftIndex, partitionIndex - <span class="number">1</span>);</span><br><span class="line">        quickSort(oArray, partitionIndex + <span class="number">1</span>, rightIndex);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// console.log('oArray', oArray);</span></span><br><span class="line">        <span class="comment">// return oArray;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span>(<span class="params">oArray, leftIndex, rightIndex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> swapIndex = leftIndex + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=swapIndex; i&lt;=rightIndex ; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(oArray[i] &lt; oArray[leftIndex]) &#123;</span><br><span class="line">            swap(oArray, i, swapIndex);</span><br><span class="line">            ++swapIndex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(oArray, leftIndex, swapIndex<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> swapIndex<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> oArr = arrPro();</span><br><span class="line">quickSort(oArr);</span><br><span class="line"><span class="comment">// console.log('快速排序法', oArr);</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'快速排序法共花费了'</span>)   <span class="comment">// 快速排序法共花费了: 0.221ms</span></span><br></pre></td></tr></table></figure>
-<h2 id="快速排序Demo2"><a href="#快速排序Demo2" class="headerlink" title="快速排序Demo2"></a>快速排序Demo2</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.time(<span class="string">'快速排序2法共花费了'</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition2</span>(<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pivot = arr[low];</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">      <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt; pivot) &#123;</span><br><span class="line">        --high;</span><br><span class="line">      &#125;</span><br><span class="line">      arr[low] = arr[high];</span><br><span class="line">      <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</span><br><span class="line">        ++low;</span><br><span class="line">      &#125;</span><br><span class="line">      arr[high] = arr[low];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = pivot;</span><br><span class="line">    <span class="keyword">return</span> low;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">quickSort2</span>(<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">      <span class="keyword">let</span> pivot = partition2(arr, low, high);</span><br><span class="line">      quickSort2(arr, low, pivot - <span class="number">1</span>);</span><br><span class="line">      quickSort2(arr, pivot + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> oArr3 = arrPro();</span><br><span class="line">quickSort2(oArr3, <span class="number">0</span>, oArr3.length - <span class="number">1</span>)</span><br><span class="line"><span class="comment">// console.log('oArr3', oArr3);</span></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'快速排序2法共花费了'</span>)          <span class="comment">// 快速排序2法共花费了: 0.110ms</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1121,12 +1131,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>

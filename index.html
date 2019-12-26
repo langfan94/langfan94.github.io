@@ -168,6 +168,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/26/golang-Mutex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/26/golang-Mutex/" class="post-title-link" itemprop="url">golang/Mutex</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-26 15:56:47 / Modified: 08:06:41" itemprop="dateCreated datePublished" datetime="2019-12-26T15:56:47+00:00">2019-12-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mutex"><a href="#Mutex" class="headerlink" title="Mutex"></a>Mutex</h1><ul>
+<li>Mutex 是互斥锁。</li>
+<li>0值就是 unlocked 状态的 Mutex</li>
+<li>Mutex 在第一次使用之后不能被复制</li>
+</ul>
+<h2 id="func-Mutex-Lock"><a href="#func-Mutex-Lock" class="headerlink" title="func(* Mutex) Lock"></a>func(* Mutex) Lock</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Mutex)</span> <span class="title">Lock</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="func-Mutex-Unlock"><a href="#func-Mutex-Unlock" class="headerlink" title="func(* Mutex) Unlock"></a>func(* Mutex) Unlock</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Mutex)</span> <span class="title">Unlock</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>解锁已经解锁的Mutex, 运行时候报错</p>
+<p>允许一个线程去锁,然后另外一个线程去解锁它</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/12/Javascript-decorators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -191,10 +258,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-12 10:42:04 / Modified: 02:51:22" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:04+00:00">2019-12-12</time>
+              <time title="Created: 2019-12-12 10:42:04" itemprop="dateCreated datePublished" datetime="2019-12-12T10:42:04+00:00">2019-12-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
+              </span>
 
           
 
@@ -271,7 +344,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -342,7 +415,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -414,7 +487,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -479,7 +552,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -572,7 +645,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -671,7 +744,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -746,7 +819,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -832,7 +905,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
+                <time title="Modified: 2019-12-26 08:06:41" itemprop="dateModified" datetime="2019-12-26T08:06:41+00:00">2019-12-26</time>
               </span>
 
           
@@ -870,90 +943,6 @@
 </blockquote>
 <h2 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h2><blockquote>
 <p>IndexedDB 是一个用于在浏览器中储存较大数据结构的 Web API, 并提供索引功能以实现高性能查找. 像其他基于 SQL 的 关系型数据库管理系统 (RDBMS) 一样, IndexedDB 是一个事务型的数据库系统. 然而, 它是使用 JavaScript 对象而非列数固定的表格来储存数据的.</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/21/cors/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xf">
-      <meta itemprop="description" content="To improve is to change~!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xfBlog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/21/cors/" class="post-title-link" itemprop="url">跨域技术</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-06-21 14:45:29" itemprop="dateCreated datePublished" datetime="2018-06-21T14:45:29+00:00">2018-06-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 02:51:22" itemprop="dateModified" datetime="2019-12-12T02:51:22+00:00">2019-12-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="其他跨域技术"><a href="#其他跨域技术" class="headerlink" title="其他跨域技术"></a>其他跨域技术</h1><h2 id="图ping"><a href="#图ping" class="headerlink" title="图ping"></a>图ping</h2><blockquote>
-<p>使用\&lt;img>标签实现跨域，使用它们的onload和onerror事件处理程序来确定是否收到了相应，通过图像Ping,浏览器得不到任何具体的数据,但通过监听load和error事件,它能知道响应是什么时候接收道的。</p>
-</blockquote>
-<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.onload = img.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Done!'</span>);</span><br><span class="line">&#125;</span><br><span class="line">img.src = <span class="string">"http://www.example.com/test?name=Nicholas"</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里创建了一个Image的实例,然后将onload 和　onerror事件处理程序指定为同一个函数。这样无论是什么响应,只要请求完成,就能得到通知.请求从设置src属性的那一刻开始,而这个例子在请求中发送了一个name参数。<br>图像ping最常用于跟踪用户点击页面或动态广告曝光次数。图像Ping有两个主要的缺点,一是只能发送Get请求,二是无法访问服务器的响应文本。</p>
-</blockquote>
-<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><blockquote>
-<p>JSONP 是JSON with padding(填充式JSON或参数式JSON)的简写，是应用JSON的一种新方法</p>
-</blockquote>
-<h3 id="demo-1"><a href="#demo-1" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleResponse</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'You` are at IP'</span> + response.ip + <span class="string">", which is in"</span> + response.city + <span class="string">", "</span> + response.response.regin_name);        </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.src = <span class="string">"http://freegeoip.net/json/?callback=handleResponse"</span></span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(script, <span class="built_in">document</span>.body.firstChild);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>优点是能够直接访问响应文本,支持在浏览器与服务器之间双向通信。但是缺点有可能在响应中夹带一些恶意代码。H5给\&lt;script>元素新增了一个onerror事件处理程序，但是目前还没有得到任何浏览器的支持。</p>
-</blockquote>
-<h1 id="Comet"><a href="#Comet" class="headerlink" title="Comet"></a>Comet</h1><blockquote>
-<p>指的是一种更高级的Ajax技术,Ajax是一种从页面向服务器请求数据的技术,而Comet则是一种服务器向页面推送数据的技术。Comet能够让信息近乎实时的被推送到页面上,非常适合处理体育比赛的分数和股票的报价。</p>
-</blockquote>
-<blockquote>
-<p>短轮询: 浏览器定时向服务器发送请求<br>长轮询: 页面发起一个请求,然后服务器一直保持连接打开,直到有数据可发送。发送完数据之后,浏览器关闭连接,随即又发起一个到服务器的新请求。<br>Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的整个生命周期内只使用一个HTTP连接.具体来说就是浏览器向服务器发送一个请求,而服务器保持连接打开,然后周期性的向浏览器发送数据。</p>
 </blockquote>
 
       
@@ -1040,12 +1029,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
