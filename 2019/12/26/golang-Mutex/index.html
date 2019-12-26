@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 12">
+  <meta name="description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
 <meta name="keywords" content="golang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang&#x2F;Mutex">
 <meta property="og:url" content="http://myblog.xfweb.xyz/2019/12/26/golang-Mutex/index.html">
 <meta property="og:site_name" content="xfBlog">
-<meta property="og:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 12">
+<meta property="og:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-26T08:06:41.784Z">
+<meta property="og:updated_time" content="2019-12-26T08:10:31.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang&#x2F;Mutex">
-<meta name="twitter:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 12">
+<meta name="twitter:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
 
 <link rel="canonical" href="http://myblog.xfweb.xyz/2019/12/26/golang-Mutex/">
 
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-26 15:56:47 / Modified: 08:06:41" itemprop="dateCreated datePublished" datetime="2019-12-26T15:56:47+00:00">2019-12-26</time>
+              <time title="Created: 2019-12-26 15:56:47 / Modified: 08:10:31" itemprop="dateCreated datePublished" datetime="2019-12-26T15:56:47+00:00">2019-12-26</time>
             </span>
 
           
@@ -217,7 +217,7 @@
 <h2 id="func-Mutex-Unlock"><a href="#func-Mutex-Unlock" class="headerlink" title="func(* Mutex) Unlock"></a>func(* Mutex) Unlock</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *Mutex)</span> <span class="title">Unlock</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 <p>解锁已经解锁的Mutex, 运行时候报错</p>
 <p>允许一个线程去锁,然后另外一个线程去解锁它</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"sync"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Mutex lock 可以被别的线程 unlock --------</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> mu sync.Mutex</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        mu.Lock()</span><br><span class="line">        time.Sleep(<span class="number">10</span> * time.Second)</span><br><span class="line">        mu.Unlock()</span><br><span class="line">    &#125;()</span><br><span class="line">    time.Sleep(time.Second)</span><br><span class="line">    mu.Unlock()</span><br><span class="line">    <span class="keyword">select</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
