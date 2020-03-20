@@ -15,36 +15,10 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://myblog.xfweb.xyz').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="To improve is to change~!">
 <meta property="og:type" content="website">
@@ -64,8 +38,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
@@ -108,6 +83,14 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
     <div>
@@ -119,11 +102,8 @@
     </div>
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
     </div>
   </div>
 </div>
@@ -168,6 +148,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/27/storage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/27/storage/" class="post-title-link" itemprop="url">数据存储</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-06-27 10:44:09" itemprop="dateCreated datePublished" datetime="2018-06-27T10:44:09+00:00">2018-06-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><blockquote>
+<p>HTTP Cookie（也叫Web Cookie或浏览器Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie使基于无状态的HTTP协议记录稳定的状态信息成为了可能。</p>
+</blockquote>
+<h3 id="Cookie主要用于以下三个方面："><a href="#Cookie主要用于以下三个方面：" class="headerlink" title="Cookie主要用于以下三个方面："></a>Cookie主要用于以下三个方面：</h3><ul>
+<li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
+<li>个性化设置（如用户自定义设置、主题等）</li>
+<li>浏览器行为跟踪（如跟踪分析用户行为等）</li>
+</ul>
+<blockquote>
+<p>JavaScript通过Document.cookies访问Cookie</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.cookie);</span><br></pre></td></tr></table></figure>
+<h2 id="sessionStorage-对象"><a href="#sessionStorage-对象" class="headerlink" title="sessionStorage 对象"></a>sessionStorage 对象</h2><blockquote>
+<p>sessionStorage 属性允许你访问一个 session Storage 对象。它与 localStorage 相似，不同之处在于 localStorage 里面存储的数据没有过期时间设置，而存储在 sessionStorage 里面的数据在页面会话结束时会被清除。页面会话在浏览器打开期间一直保持，并且重新加载或恢复页面仍会保持原来的页面会话。在新标签或窗口打开一个页面会初始化一个新的会话，这点和 session cookies 的运行方式不同。</p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到sessionStorage</span></span><br><span class="line">sessionStorage.setItem(<span class="string">'key'</span>, <span class="string">'value'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage获取数据</span></span><br><span class="line"><span class="keyword">var</span> data = sessionStorage.getItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage删除保存的数据</span></span><br><span class="line">sessionStorage.removeItem(<span class="string">'key'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage删除所有保存的数据</span></span><br><span class="line">sessionStorage.clear();</span><br></pre></td></tr></table></figure>
+<h2 id="localStorage-对象"><a href="#localStorage-对象" class="headerlink" title="localStorage 对象"></a>localStorage 对象</h2><blockquote>
+<p>localStorage 与 sessionStorage 一样，都遵循同源策略，但是它是持续存在的。localStorage 首次出现于 Firefox 3.5。</p>
+</blockquote>
+<blockquote>
+<p>localStorage 和 globalStorage[location.hostname] 是一样的, 除了作用域是在 HTML5 origin (结构 + 主机名 + 非标准的端口)， 并且 localStorage 是一个 Storage 实例 ，而globalStorage[location.hostname] 是一个 StorageObsolete 实例</p>
+</blockquote>
+<h2 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h2><blockquote>
+<p>IndexedDB 是一个用于在浏览器中储存较大数据结构的 Web API, 并提供索引功能以实现高性能查找. 像其他基于 SQL 的 关系型数据库管理系统 (RDBMS) 一样, IndexedDB 是一个事务型的数据库系统. 然而, 它是使用 JavaScript 对象而非列数固定的表格来储存数据的.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/21/cors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -199,7 +268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -283,7 +352,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -358,7 +427,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -434,7 +503,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -530,7 +599,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -670,7 +739,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -743,7 +812,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -820,7 +889,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -898,7 +967,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
               </span>
 
           
@@ -986,81 +1055,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/21/closure-js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xf">
-      <meta itemprop="description" content="To improve is to change~!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xfBlog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/05/21/closure-js/" class="post-title-link" itemprop="url">闭包</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-05-21 11:50:48" itemprop="dateCreated datePublished" datetime="2018-05-21T11:50:48+00:00">2018-05-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-26 08:10:31" itemprop="dateModified" datetime="2019-12-26T08:10:31+00:00">2019-12-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><blockquote>
-<p>　闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，…直至作为作用域链终点的全局执行环境。</p>
-</blockquote>
-<h2 id="闭包与变量"><a href="#闭包与变量" class="headerlink" title="闭包与变量"></a>闭包与变量</h2><blockquote>
-<p>作用域链的这种配置机制引出了一个副作用,即闭包只能去地包含函数中任何变量的最后一个值。</p>
-</blockquote>
-<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> re = createFunctions();</span><br><span class="line">re[<span class="number">0</span>]();   <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
-<h3 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">        result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>　在调用每个匿名函数时, 我们传入了变量i。由于函数参数是按值传递的,所以会将变量i的当前值复制给参数num.而在这个匿名函数内部,又创建返回了一个访问num的闭包.这样一来,result 数组中的每个函数都有自己num变量的一个副本,因此就可以返回各自不同的数值了.</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1075,7 +1069,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -1131,12 +1125,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -1158,10 +1152,12 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1170,7 +1166,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
   </div>
 
         

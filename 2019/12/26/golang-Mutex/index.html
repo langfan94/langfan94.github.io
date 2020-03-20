@@ -15,36 +15,10 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://myblog.xfweb.xyz').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
 <meta name="keywords" content="golang">
@@ -54,7 +28,7 @@
 <meta property="og:site_name" content="xfBlog">
 <meta property="og:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-26T08:10:31.862Z">
+<meta property="og:updated_time" content="2020-03-20T11:06:10.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang&#x2F;Mutex">
 <meta name="twitter:description" content="Mutex Mutex 是互斥锁。 0值就是 unlocked 状态的 Mutex Mutex 在第一次使用之后不能被复制  func(* Mutex) Lock1func (m *Mutex) Lock() func(* Mutex) Unlock1func (m *Mutex) Unlock() 解锁已经解锁的Mutex, 运行时候报错 允许一个线程去锁,然后另外一个线程去解锁它 123456">
@@ -66,8 +40,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
   };
 </script>
 
@@ -110,6 +85,14 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
     <div>
@@ -121,11 +104,8 @@
     </div>
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
     </div>
   </div>
 </div>
@@ -192,10 +172,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-26 15:56:47 / Modified: 08:10:31" itemprop="dateCreated datePublished" datetime="2019-12-26T15:56:47+00:00">2019-12-26</time>
+              <time title="Created: 2019-12-26 15:56:47" itemprop="dateCreated datePublished" datetime="2019-12-26T15:56:47+00:00">2019-12-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+              </span>
 
           
 
@@ -238,7 +224,10 @@
     <a href="/2019/12/12/Javascript-decorators/" rel="prev" title="Javascript-decorators">
       <i class="fa fa-chevron-left"></i> Javascript-decorators
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/20/two-eggs/" rel="next" title="two-eggs">
+      two-eggs <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -255,7 +244,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -312,12 +301,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -339,10 +328,12 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -351,7 +342,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
   </div>
 
         
