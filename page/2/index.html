@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="To improve is to change~!">
@@ -93,13 +93,11 @@
 
   <div class="site-meta">
 
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">xfBlog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xfBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
 
   <div class="site-nav-right">
@@ -109,22 +107,26 @@
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -140,14 +142,12 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/27/storage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -160,15 +160,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/27/storage/" class="post-title-link" itemprop="url">数据存储</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -176,10 +176,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -233,10 +233,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/21/cors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,15 +249,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/21/cors/" class="post-title-link" itemprop="url">跨域技术</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -265,10 +265,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -317,10 +317,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/14/Element-Clickoutside/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -333,15 +333,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/14/Element-Clickoutside/" class="post-title-link" itemprop="url">Element-Clickoutside</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -349,10 +349,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -392,10 +392,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/13/Virtual-DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,15 +408,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/13/Virtual-DOM/" class="post-title-link" itemprop="url">How to write your own Virtual DOM</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -424,10 +424,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -468,10 +468,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/06/captch-bubbling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -484,15 +484,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/06/captch-bubbling/" class="post-title-link" itemprop="url">js 冒泡和捕获事件</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -500,10 +500,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -564,10 +564,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/05/CommonJs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -580,15 +580,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/05/CommonJs/" class="post-title-link" itemprop="url">CommonJs规范</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -596,10 +596,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -704,10 +704,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/06/01/Symbol-iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -720,15 +720,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/06/01/Symbol-iterator/" class="post-title-link" itemprop="url">Symbol.iterator</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -736,10 +736,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -777,10 +777,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/30/subscribe-mode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -793,15 +793,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/05/30/subscribe-mode/" class="post-title-link" itemprop="url">订阅者模式</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -809,10 +809,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -854,10 +854,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/28/input-url/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -870,15 +870,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/05/28/input-url/" class="post-title-link" itemprop="url">从输入URL到页面加载完成的过程中都发生了什么</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -886,10 +886,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -932,10 +932,10 @@
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/21/browser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -948,15 +948,15 @@
       <meta itemprop="name" content="xfBlog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2018/05/21/browser/" class="post-title-link" itemprop="url">浏览器内核</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
@@ -964,10 +964,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 11:06:10" itemprop="dateModified" datetime="2020-03-20T11:06:10+00:00">2020-03-20</time>
+                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
               </span>
 
           
@@ -1055,7 +1055,6 @@
   
   
 
-  </div>
 
   
   <nav class="pagination">
@@ -1159,14 +1158,11 @@
   &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">xf</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
