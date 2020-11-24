@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -254,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -328,7 +328,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -453,7 +453,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -560,7 +560,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -646,7 +646,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-16 04:27:28" itemprop="dateModified" datetime="2020-07-16T04:27:28+00:00">2020-07-16</time>
+                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
               </span>
 
           
@@ -673,7 +673,7 @@
 <li>value 该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 undefined。</li>
 <li>writable 当且仅当该属性的 writable 为 true 时，该属性才能被赋值运算符改变。默认为 false。</li>
 <li>get 一个给属性提供 getter 的方法，如果没有 getter 则为undefined。当我们读取某个属性的时候，其实是在对象内部调用了该方法，此方法必须要有return语句。该方法返回值被用作属性值。默认为 undefined。</li>
-<li>set 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined。也就是说，当我们设置某个属性的时候，实际上是在对象的内部调用了该方法。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, <span class="string">"b"</span>, &#123;</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'新值: '</span> + newValue)</span><br><span class="line">    &#125;,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'需要返回的值'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">a.b = <span class="number">1</span> <span class="comment">// 新值: 1</span></span><br><span class="line">a.b  <span class="comment">// 需要返回的值 2</span></span><br></pre></td></tr></table></figure></li>
+<li>set 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined。也就是说，当我们设置某个属性的时候，实际上是在对象的内部调用了该方法。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, <span class="string">"b"</span>, &#123;</span><br><span class="line">    <span class="keyword">set</span>: function(newValue) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'新值: '</span> + newValue)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">get</span>: function() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'需要返回的值'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">a.b = <span class="number">1</span> <span class="comment">// 新值: 1</span></span><br><span class="line">a.b  <span class="comment">// 需要返回的值 2</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
