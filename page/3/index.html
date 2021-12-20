@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.react.xn--fiqs8s","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="To improve is to change~!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xfBlog">
-<meta property="og:url" content="http://myblog.xfweb.xyz/page/3/index.html">
+<meta property="og:url" content="https://blog.react.xn--fiqs8s/page/3/index.html">
 <meta property="og:site_name" content="xfBlog">
 <meta property="og:description" content="To improve is to change~!">
 <meta property="og:locale" content="zh-Hans">
@@ -31,7 +31,7 @@
 <meta name="twitter:title" content="xfBlog">
 <meta name="twitter:description" content="To improve is to change~!">
 
-<link rel="canonical" href="http://myblog.xfweb.xyz/page/3/">
+<link rel="canonical" href="https://blog.react.xn--fiqs8s/page/3/">
 
 
 <script id="page-configurations">
@@ -148,7 +148,130 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/21/closure-js/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/21/browser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/21/browser/" class="post-title-link" itemprop="url">浏览器内核</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-21 17:15:26" itemprop="dateCreated datePublished" datetime="2018-05-21T17:15:26+00:00">2018-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><blockquote>
+<p>浏览器内核由渲染引擎和JS引擎组成，不同的浏览器、即使同一浏览器不同型号可能渲染引擎和JS引擎都不一样。</p>
+</blockquote>
+<h2 id="渲染引擎"><a href="#渲染引擎" class="headerlink" title="渲染引擎"></a>渲染引擎</h2><ol>
+<li>Trident渲染引擎 –&gt; 老版本IE系列浏览器</li>
+<li>Edge渲染引擎 -&gt; Win10中IE浏览器</li>
+<li>Gecko渲染引擎 –&gt; Mozilla Firefox</li>
+<li>Presto渲染引擎 –&gt; Opera</li>
+<li>KHTML渲染引擎 –&gt; 早期的Safafi和Google Chrome</li>
+<li>Webkit渲染引擎 -&gt; 2001年后的Safari和Chrome以及国内的一些浏览器</li>
+<li>Blink渲染引擎 -&gt; 新版本的Chromium浏览器Google项目</li>
+</ol>
+<h2 id="JavaScript引擎"><a href="#JavaScript引擎" class="headerlink" title="JavaScript引擎"></a>JavaScript引擎</h2><ol>
+<li>JScript引擎 –&gt; IE系列浏览器</li>
+<li>spiderMonkey引擎 –&gt; Mozilla Firefox</li>
+<li>V8引擎 –&gt; Google Chrome</li>
+<li>linear b/futhark引擎 –&gt; Opera</li>
+</ol>
+<h2 id="浏览器渲染引擎发展历史"><a href="#浏览器渲染引擎发展历史" class="headerlink" title="浏览器渲染引擎发展历史"></a>浏览器渲染引擎发展历史</h2><p><img src="/public/images/browserHistory.png" alt="浏览器渲染引擎发展历史"></p>
+<h2 id="浏览器的渲染引擎及依赖模块分析"><a href="#浏览器的渲染引擎及依赖模块分析" class="headerlink" title="浏览器的渲染引擎及依赖模块分析"></a>浏览器的渲染引擎及依赖模块分析</h2><p><img src="/public/images/renderFunction.png" alt="浏览器的渲染引擎及依赖模块分析"></p>
+<h2 id="输入URL到页面展示简图"><a href="#输入URL到页面展示简图" class="headerlink" title="输入URL到页面展示简图"></a>输入URL到页面展示简图</h2><p><img src="/public/images/urlToDom.png" alt="输入URL到页面展示简图"></p>
+<h3 id="浏览器内核各部分解释"><a href="#浏览器内核各部分解释" class="headerlink" title="浏览器内核各部分解释"></a>浏览器内核各部分解释</h3><blockquote>
+<p>HTML解释器：解释HTML文本的解释器，主要作用是将HTML文本解释成DOM树，DOM是一种文档表示方法。</p>
+<p>CSS解释器：级联样式表的解释器，它的作用是为DOM中的各个元素对象计算出样式信息，从而为计算最后网页的布局提供基础设施。</p>
+<p>布局：在DOM创建之后，webkit需要将其中的元素对象同样式信息结合起来，计算它们的大小&gt; 位置等布局信息，形成一个能够表示这所有信息的内部比偶表示模型。</p>
+<p>JavaScript引擎：使用JavaScript代码可以修改网页的内容，也能修改CSS的信息，JavaScript引擎能过解释JavaScript代码并通过DOM接口和CSSOM接口来修改网页内容和样式信息，从而改变渲染结果。</p>
+<p>绘图：使用图形库将布局计算后的各个网页的节点绘制成图像结果。</p>
+</blockquote>
+<h3 id="HTML解释器"><a href="#HTML解释器" class="headerlink" title="HTML解释器"></a>HTML解释器</h3><p><img src="/public/images/htmlExplain.png" alt="HTML解释器"></p>
+<blockquote>
+<p>首先是字节流，经过解码之后是字符流，然后通过词法分析器会被解释成词语（Tokens），时候经过分析器构建成节点，最后这些节点被组建成一棵DOM树。</p>
+<p>词法分析：HTMLTokenizer 类（作用是词法分析，类似于状态机），输入的是字符串，输出的是一个个的词语。</p>
+<p>XSSAuditor验证词语：XSSAuditor （验证词语流Token Stream）XSS指的是Cross Site Security，主要是针对安全方面的考虑。</p>
+<p>词语到节点：webkit用来构建DOM节点，这一步骤由HTMLDocumentParser 类调用 HTMLTreeBuilder 类的 constructTree的函数来实现。</p>
+<p>节点到DOM树：树中的元素节点创建属性节点等工作由HTMLConstructionSite类来完成，该类中包含一个 HTMLElementStack 作为保存元素节点的栈。</p>
+<p>JavaScript的执行：webkit将DOM树创建过程中需要执行得我Javascript代码交由HTMLScriptRunner类来负责。</p>
+<p>DOM的事件机制：webkit中用EventTarget类来表示DOM规范中Events部分定义的事件目标，Node 节点继承自 EventTarget类，所以Node拥有EventTarget类的相关的方法。</p>
+</blockquote>
+<h3 id="CSS解释器和样式布局"><a href="#CSS解释器和样式布局" class="headerlink" title="CSS解释器和样式布局"></a>CSS解释器和样式布局</h3><blockquote>
+<p>css解释器和规则匹配处于DOM树建立之后，RenderObject树建立之前，css解释器解释后的结果会保存起来，然后RenderObject树基于该结果来进行规范匹配和布局计算。</p>
+</blockquote>
+<p><img src="/public/images/cssToDom.png" alt="CSS解释器和样式布局"></p>
+<h3 id="CSSOM（CSS-Object-Model）"><a href="#CSSOM（CSS-Object-Model）" class="headerlink" title="CSSOM（CSS Object Model）"></a>CSSOM（CSS Object Model）</h3><blockquote>
+<p>CSSOM视图模块(CSSOM View Module)定义了一些 API，Web 开发人员使用这些 API 可以进行检查，也可以以编程方式更改文档及其内容的视觉属性，包括布局框定位、视区宽度和元素滚动。</p>
+<p>document.styleSheets 可以查看当前页面的StyleSheetList对象，每个link、style都会产生 CSSStyleSheet 作为 StyleSheetList对象的value。</p>
+</blockquote>
+<h3 id="CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）"><a href="#CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）" class="headerlink" title="CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）"></a>CSS解释器和规则匹配（本区块内容会使我们对css选择器权重有更好的理解）</h3><blockquote>
+<p>DocumentStyleSheetCollection类（属于Document类），该类包含了所有CSS样式表，还包括了webkit的内部表示类CSSStyleSheet，它包含了CSS的href、类型、内容等信息。</p>
+<p>CSS解释过程：css字符串经过css解释器处理后变成渲染引擎的内部规则的过程，使用CSSParser类来负责该过程。</p>
+<p>在解释网页中自定义的CSS样式之前，实际上webkit渲染引擎会为每个网页设置一个默认样式，这也是我们为什么要重置浏览器样式的根本原因。</p>
+<p>规则匹配：StyleResolver类为DOM的元素节点匹配样式，StyleResolver类根据元素的信息，例如标签名、类别等，从样式规则中查找最匹配的规则，然后将样式信息保存到新建的RenderStyle对象中。最后，这些RenderStyle对象被RenderObject类所管理和使用。</p>
+<p>其中，规则的匹配则是由ElementRuleCollector类来计算并获得，它根据元素的属性等信息，并从DocumentRuleSets类中获取规则集合，依次按照ID、CLASS、标签等选择器信息逐次匹配获得元素的样式。</p>
+<p>然后webkit对这些规则进行排序，对于该元素需要的样式属性，webkit选择从高优先级规则中选取，并将样式属性值返回。</p>
+<p>这里，我引入一个不太相关的知识点，块格式化上下文（Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的部分，是块级盒布局发生的区域，也是浮动元素与其他元素交互的区域。</p>
+</blockquote>
+<h3 id="webkit布局"><a href="#webkit布局" class="headerlink" title="webkit布局"></a>webkit布局</h3><blockquote>
+<p>当webkit创建RenderObject对象之后，每个对象是不知道自己的位置、大小等信息的，webkit根据盒模型来计算他们的位置、大小等信息的过程称为布局计算/排版。</p>
+<p>布局计算分类：第一类是对整个RenderObject树进行的计算；第二类是对RenderObject树中某个子树的计算，常见于文本元素或者overflow：auto块的计算。<br>布局计算：布局计算是一个递归的过程，这是因为一个节点的大小通常需要先计算它的子节点的位置、大小等信息。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/21/closure-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +302,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -223,7 +346,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/15/quickSort/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/15/quickSort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -254,7 +377,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -297,7 +420,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/11/createObject/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/11/createObject/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -328,7 +451,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -422,7 +545,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/10/git-reset/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/10/git-reset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -453,7 +576,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -529,7 +652,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/10/throttle-debounce/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/10/throttle-debounce/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -560,7 +683,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -615,7 +738,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/05/10/Object-defineProperty/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/05/10/Object-defineProperty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -646,7 +769,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -759,12 +882,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -791,7 +914,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.1">
+<meta name="generator" content="Hexo 3.9.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"myblog.xfweb.xyz","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.react.xn--fiqs8s","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="To improve is to change~!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xfBlog">
-<meta property="og:url" content="http://myblog.xfweb.xyz/index.html">
+<meta property="og:url" content="https://blog.react.xn--fiqs8s/index.html">
 <meta property="og:site_name" content="xfBlog">
 <meta property="og:description" content="To improve is to change~!">
 <meta property="og:locale" content="zh-Hans">
@@ -31,7 +31,7 @@
 <meta name="twitter:title" content="xfBlog">
 <meta name="twitter:description" content="To improve is to change~!">
 
-<link rel="canonical" href="http://myblog.xfweb.xyz/">
+<link rel="canonical" href="https://blog.react.xn--fiqs8s/">
 
 
 <script id="page-configurations">
@@ -148,7 +148,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2020/03/20/two-eggs/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2021/12/20/Merge-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xf">
+      <meta itemprop="description" content="To improve is to change~!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xfBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/20/Merge-Sort/" class="post-title-link" itemprop="url">Merge-Sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-12-20 16:09:15 / Modified: 08:42:13" itemprop="dateCreated datePublished" datetime="2021-12-20T16:09:15+00:00">2021-12-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Timsort"><a href="#Timsort" class="headerlink" title="Timsort"></a>Timsort</h1><blockquote>
+<p>Timsort 是一种混合稳定的排序算法，源自合并排序和插入排序，旨在较好地处理真实世界中各种各样的数据。它使用了 Peter Mcllroy 的”乐观排序和信息理论上复杂性”中的技术，参见 第四届年度ACM-SIAM离散算法研讨会论文集，第467-474页，1993年。 它由 Tim Peters 在2002年实现，并应用于 Python编程语言。该算法通过查找已经排好序的数据子序列，在此基础上对剩余部分更有效地排序。 该算法通过不断地将特定子序列（称为一个 run ）与现有的 run 合并，直到满足某些条件为止来达成的更有效的排序。 从 2.3 版本起，Timsort 一直是 Python 的标准排序算法。 它还被 Java SE7[4], Android platform[5], GNU Octave,[6] 谷歌浏览器,[7] 和 Swift[8] 用于对非原始类型的数组排序。</p>
+</blockquote>
+<h2 id="合并排序实现"><a href="#合并排序实现" class="headerlink" title="合并排序实现"></a>合并排序实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Merge-sort */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = [];</span><br><span class="line">  <span class="keyword">while</span> (left.length &gt; <span class="number">0</span> &amp;&amp; right.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left[<span class="number">0</span>] &lt; right[<span class="number">0</span>]) &#123;</span><br><span class="line">      arr.push(left.shift());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      arr.push(right.shift());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [...arr, ...left, ...right];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">divSort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> half = array.length / <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span> (array.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> left = array.splice(<span class="number">0</span>, half);</span><br><span class="line">  <span class="keyword">return</span> merge(divSort(left), divSort(array));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> testArray = [<span class="number">4</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">11</span>, <span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(divSort(testArray));</span><br></pre></td></tr></table></figure>
+<h2 id="TimSort-和-quicksort"><a href="#TimSort-和-quicksort" class="headerlink" title="TimSort 和 quicksort"></a>TimSort 和 quicksort</h2><p>TimSort是高度优化的mergesort，它比旧的mergesort更稳定，更快。</p>
+<p>与quicksort相比，它有两个优点：</p>
+<ol>
+<li>对于几乎排序的数据序列（包括反向排序数据）来说，速度快得令人难以置信;</li>
+<li>最坏的情况仍然是O（N * LOG（N））。<br>老实说，我不认为＃1是一个优势，但它给我留下了深刻的印象。</li>
+</ol>
+<p>这是QuickSort的优势</p>
+<ol>
+<li>QuickSort非常简单，即使是高度优化的实现，我们也可以在20行内写下它的pseduo代码;</li>
+<li>QuickSort在大多数情况下是最快的;</li>
+<li>内存消耗为LOG（N）。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2020/03/20/two-eggs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +253,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -222,7 +296,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/26/golang-Mutex/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2019/12/26/golang-Mutex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -253,7 +327,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -295,7 +369,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/12/Javascript-decorators/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2019/12/12/Javascript-decorators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -326,7 +400,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -373,7 +447,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2019/12/05/co/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2019/12/05/co/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -404,7 +478,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -444,7 +518,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/11/28/ios-input-bug/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/11/28/ios-input-bug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -475,7 +549,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -516,7 +590,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/09/29/input-iview/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/09/29/input-iview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -547,7 +621,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -581,7 +655,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/07/26/mygulp/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/07/26/mygulp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -612,7 +686,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -674,7 +748,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/07/23/wechat-program/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/07/23/wechat-program/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -705,7 +779,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -773,7 +847,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/07/18/front-team/">
+    <link itemprop="mainEntityOfPage" href="https://blog.react.xn--fiqs8s/2018/07/18/front-team/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -804,7 +878,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
+                <time title="Modified: 2021-12-20 08:42:13" itemprop="dateModified" datetime="2021-12-20T08:42:13+00:00">2021-12-20</time>
               </span>
 
           
@@ -829,92 +903,6 @@
 <h2 id="百度FEX"><a href="#百度FEX" class="headerlink" title="百度FEX"></a>百度FEX</h2><p><a href="https://fex.baidu.com/" target="_blank" rel="noopener">百度FEX</a></p>
 
 <h2 id="蚂蚁金服AFX"><a href="#蚂蚁金服AFX" class="headerlink" title="蚂蚁金服AFX"></a>蚂蚁金服AFX</h2><p>蚂蚁金服AFX</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://myblog.xfweb.xyz/2018/07/04/webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xf">
-      <meta itemprop="description" content="To improve is to change~!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xfBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/04/webpack/" class="post-title-link" itemprop="url">webpack升级</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-07-04 15:03:41" itemprop="dateCreated datePublished" datetime="2018-07-04T15:03:41+00:00">2018-07-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-24 23:26:28" itemprop="dateModified" datetime="2020-11-24T23:26:28+00:00">2020-11-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="webpack升级遇到的问题"><a href="#webpack升级遇到的问题" class="headerlink" title="webpack升级遇到的问题"></a>webpack升级遇到的问题</h1><blockquote>
-<p>最近朋友推荐我了解一个开源项目的升级,webpack从1.14.0 升级到目前最新的 v4.14.0</p>
-</blockquote>
-<p><a href="https://github.com/dexteryy/Project-WebCube" target="_blank" rel="noopener">Project-WebCube 开源项目</a> （github被墙,需要fanqiang）</p>
-<p>这个项目中使用了yarn 管理依赖,lerna 进行多项目依赖的统一化管理,解决大项目中依赖不同,版本更新出现的bug.</p>
-<p>Project-WebCube/tree/master/packages/webcube &gt; package.json 中yarn安装的webpack是1.14.0,但是在更新webpack当中运行报错 Cannot find module ‘webpack/lib/removeAndDo’<br>然后发现extract-text-webpack-plugin插件最高只能支持webpack3<br><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin" target="_blank" rel="noopener">extract-text-webpack-plugin</a></p>
-<blockquote>
-<p>Since webpack v4 the extract-text-webpack-plugin should not be used for css. Use mini-css-extract-plugin instead.</p>
-</blockquote>
-<p>需要替换成 mini-css-extract-plugin插件使用<br><a href="https://github.com/webpack-contrib/mini-css-extract-plugin" target="_blank" rel="noopener">mini-css-extract-plugin</a></p>
-<h2 id="extract-text-webpack-plugin-amp-amp-mini-css-extract-plugin-区别"><a href="#extract-text-webpack-plugin-amp-amp-mini-css-extract-plugin-区别" class="headerlink" title="extract-text-webpack-plugin &amp;&amp; mini-css-extract-plugin 区别"></a>extract-text-webpack-plugin &amp;&amp; mini-css-extract-plugin 区别</h2><h3 id="extract-text-webpack-plugin"><a href="#extract-text-webpack-plugin" class="headerlink" title="extract-text-webpack-plugin"></a>extract-text-webpack-plugin</h3><blockquote>
-<p>Extract text from a bundle, or bundles, into a separate file.</p>
-</blockquote>
-<h4 id="extract-text-webpack-plugin-抽取到同一个文件夹下，名称不变"><a href="#extract-text-webpack-plugin-抽取到同一个文件夹下，名称不变" class="headerlink" title="extract-text-webpack-plugin 抽取到同一个文件夹下，名称不变"></a>extract-text-webpack-plugin 抽取到同一个文件夹下，名称不变</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">entry: &#123;</span><br><span class="line">    <span class="string">"script"</span>: <span class="string">"./src/entry.js"</span>,</span><br><span class="line">    <span class="string">"bundle"</span>: <span class="string">"./src/entry2.js"</span>,</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">    &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>) &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>)</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是这样配置的话所有分离的文件也会压缩到一个文件上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line"><span class="keyword">new</span> ExtractTextPlugin(<span class="string">"[name].css"</span>, &#123;<span class="attr">allChunks</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>mini-css-extract-plugin不能压缩到同一个文件夹,只能压缩到同一个文件中或者是压缩到js文件中，如此一来,优点是减少了请求,缺点也很明显,如果文件很大,打包过后js文件将会很大.</li>
-<li>extract-text-webpack-plugin 可以实现多个文件抽离到同一个文件夹下,但是目前不支持webpack 4.X.X,官方推荐使用mini-css-extract-plugin</li>
-<li>mini-css-extract-plugin如下配置打包，会把import ‘./css/index.css’ 文件打包压缩到/dist文件夹下的一个js文件中，然后通过script中的src源引入.</li>
-</ul>
-<h3 id="mini-css-extract-plugin"><a href="#mini-css-extract-plugin" class="headerlink" title="mini-css-extract-plugin"></a>mini-css-extract-plugin</h3><p>mini-css-extract-plugin 配置 抽离到同一个文件夹可以如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">        &#123;</span><br><span class="line">            test: <span class="regexp">/\.(sa|sc|c)ss$/</span>,</span><br><span class="line">            use: [</span><br><span class="line">                devMode ? <span class="string">'style-loader'</span> : MiniCssExtractPlugin.loader,</span><br><span class="line">                <span class="string">'css-loader'</span>,</span><br><span class="line">                <span class="string">'postcss-loader'</span>,</span><br><span class="line">                <span class="string">'sass-loader'</span>,</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      <span class="comment">// Options similar to the same options in webpackOptions.output</span></span><br><span class="line">      <span class="comment">// both options are optional</span></span><br><span class="line">      filename: devMode ? <span class="string">'[name].css'</span> : <span class="string">'[name].[hash].css'</span>,</span><br><span class="line">      chunkFilename: devMode ? <span class="string">'[id].css'</span> : <span class="string">'[id].[hash].css'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -999,12 +987,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -1031,7 +1019,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
