@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>My Site Blog</title>
-        <link>http://localhost:3000/</link>
+        <link>https://blog.react.xn--fiqs8s/</link>
         <description>My Site Blog</description>
         <lastBuildDate>Tue, 28 Dec 2021 15:08:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,19 +10,19 @@
         <language>en</language>
         <item>
             <title><![CDATA[npmTest]]></title>
-            <link>http://localhost:3000/npmTest</link>
+            <link>https://blog.react.xn--fiqs8s/npmTest</link>
             <guid>/npmTest</guid>
             <pubDate>Tue, 28 Dec 2021 15:08:14 GMT</pubDate>
             <description><![CDATA[本地多个包相互依赖，如何去本地npm安装并测试呢？]]></description>
             <content:encoded><![CDATA[<h6 class="anchor anchorWithStickyNavbar_mojV" id="本地多个包相互依赖如何去本地npm安装并测试呢">本地多个包相互依赖，如何去本地npm安装并测试呢？<a class="hash-link" href="#本地多个包相互依赖如何去本地npm安装并测试呢" title="Direct link to heading">​</a></h6><h1>项目结构</h1><div class="codeBlockContainer_I0IT theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-text codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">npmTest</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─ .DS_Store</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─ a</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ .DS_Store</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ index.mjs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ package-lock.json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─ package.json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─ b</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ .DS_Store</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ index.mjs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─ package.json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└─ c</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ├─ index.mjs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └─ package.json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div><h3 class="anchor anchorWithStickyNavbar_mojV" id="假设有三个package">假设有三个package<a class="hash-link" href="#假设有三个package" title="Direct link to heading">​</a></h3><p>a项目依赖b项目，b项目依赖c项目
 安装的时候只在a项目下安装依赖，即npm install --save ./b</p><p>a -&gt; package.json 如下：</p><div class="codeBlockContainer_I0IT language-json theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-json codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"name"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"b"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"version"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"2.0.0"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"description"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">""</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"main"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"index.mjs"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"scripts"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token property" style="color:#36acaa">"test"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"author"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">""</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"license"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"ISC"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">"dependencies"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token property" style="color:#36acaa">"c"</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"file:../c"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div><p>a -&gt; index.mjs 如下：</p><div class="codeBlockContainer_I0IT language-js theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-js codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword module" style="color:#00009f">import</span><span class="token plain"> </span><span class="token imports">c</span><span class="token plain"> </span><span class="token keyword module" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'c'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword module" style="color:#00009f">export</span><span class="token plain"> </span><span class="token keyword module" style="color:#00009f">default</span><span class="token plain"> c</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div><p>a -&gt; node_modules 目录结构 如下：</p><div class="codeBlockContainer_I0IT theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-text codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">node_modules</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─ b</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ├─ node_modules </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│     ├─ c</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">|        ├─ index.mjs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">|        ├─ package.json</span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div><p>a项目node_modules里面b依赖包会与 ./b 建立软连接，方便开发在本地调试。</p><h3 class="anchor anchorWithStickyNavbar_mojV" id="查看npm解析安装依赖包详细情况">查看npm解析安装依赖包详细情况<a class="hash-link" href="#查看npm解析安装依赖包详细情况" title="Direct link to heading">​</a></h3><blockquote><p>npm install --verbose  (打印详细信息)
 npm install --loglevel silly (答应更加具体的解析安装详情)
-npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息到log.txt文件中 2&gt;&amp;1 输出成单个流; tee 读取标准输入到数据，并将内容输出成文件)</p></blockquote><div class="codeBlockContainer_I0IT language-zsh theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-zsh codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">npm info it worked if it ends with ok</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '/usr/local/bin/node',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '/usr/local/bin/npm',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   'install',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '--loglevel',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   'silly'</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info using npm@6.14.15</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info using node@v14.16.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb npm-session 85e124dc20badd09</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install runPreinstallTopLevelLifecycles</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill preinstall a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~preinstall: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadCurrentTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install readLocalPackageData</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadCurrentTree Completed in 9ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install cloneCurrentTreeToIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:cloneCurrentTree Completed in 1ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadShrinkwrap</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:loadShrinkwrap Completed in 6ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadAllDepsIntoIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 3ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree Completed in 11ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install generateActionsToTake</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:generateActionsToTake Completed in 2ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill diffTrees action count 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill decomposeActions action count 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install executeActions</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial global-install 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb correctMkdir /Users/xf/.npm/_locks correctMkdir not in flight; initializing</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb lock using /Users/xf/.npm/_locks/staging-cc44cd3a0fd01acc.lock for /Users/xf/Documents/Test/test/js/npmTest/a/node_modules/.staging</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel extract 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doReverseSerial unbuild 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial remove 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial move 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial finalize 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel refresh-package-json 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel preinstall 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial build 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial global-link 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel update-linked 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial install 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial postinstall 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb unlock done using /Users/xf/.npm/_locks/staging-cc44cd3a0fd01acc.lock for /Users/xf/Documents/Test/test/js/npmTest/a/node_modules/.staging</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:executeActions Completed in 29ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:rollbackFailedOptional Completed in 0ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install runPostinstallTopLevelLifecycles</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill build a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info linkStuff a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill linkStuff a@1.0.0 has /Users/xf/Documents/Test/test/js/npmTest as its parent node_modules</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~install: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill postinstall a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~postinstall: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill prepublish a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~prepublish: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~prepare: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:runTopLevelLifecycles Completed in 81ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree a@1.0.0       // 依赖的结构</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install saveToDependencies</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb saving []</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb shrinkwrap skipping write for package.json because there were no changes.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle undefined~preshrinkwrap: undefined</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~shrinkwrap: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb shrinkwrap skipping write for package-lock.json because there were no changes.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~postshrinkwrap: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm WARN a@1.0.0 No description</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm WARN a@1.0.0 No repository field.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install printInstalled</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing audit submit Completed in 511ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm http fetch POST 200 http://r.tnpm.oa.com/-/npm/v1/security/audits/quick 512ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing audit body Completed in 2ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">audited 2 packages in 0.565s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">found 0 vulnerabilities</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb exit [ 0, true ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing npm Completed in 906ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info ok </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div>]]></content:encoded>
+npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息到log.txt文件中 2&gt;&amp;1 输出成单个流; tee 读取标准输入到数据，并将内容输出成文件)</p></blockquote><div class="codeBlockContainer_I0IT language-zsh theme-code-block"><div class="codeBlockContent_wNvx" style="color:#393A34;background-color:#f6f8fa"><pre tabindex="0" class="prism-code language-zsh codeBlock_jd64 thin-scrollbar"><code class="codeBlockLines_mRuA"><span class="token-line" style="color:#393A34"><span class="token plain">npm info it worked if it ends with ok</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli [</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '/usr/local/bin/node',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '/usr/local/bin/npm',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   'install',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   '--loglevel',</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli   'silly'</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb cli ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info using npm@6.14.15</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info using node@v14.16.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb npm-session 85e124dc20badd09</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install runPreinstallTopLevelLifecycles</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill preinstall a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~preinstall: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadCurrentTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install readLocalPackageData</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadCurrentTree Completed in 9ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install cloneCurrentTreeToIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:cloneCurrentTree Completed in 1ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadShrinkwrap</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:loadShrinkwrap Completed in 6ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install loadAllDepsIntoIdealTree</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 3ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:loadIdealTree Completed in 11ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill currentTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill idealTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install generateActionsToTake</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:generateActionsToTake Completed in 2ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill diffTrees action count 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill decomposeActions action count 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install executeActions</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial global-install 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb correctMkdir /Users/xf/.npm/_locks correctMkdir not in flight; initializing</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb lock using /Users/xf/.npm/_locks/staging-cc44cd3a0fd01acc.lock for /Users/xf/Documents/Test/test/js/npmTest/a/node_modules/.staging</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel extract 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doReverseSerial unbuild 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial remove 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial move 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial finalize 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel refresh-package-json 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel preinstall 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial build 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial global-link 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doParallel update-linked 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial install 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill doSerial postinstall 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb unlock done using /Users/xf/.npm/_locks/staging-cc44cd3a0fd01acc.lock for /Users/xf/Documents/Test/test/js/npmTest/a/node_modules/.staging</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:executeActions Completed in 29ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:rollbackFailedOptional Completed in 0ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install runPostinstallTopLevelLifecycles</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill build a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info linkStuff a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill linkStuff a@1.0.0 has /Users/xf/Documents/Test/test/js/npmTest as its parent node_modules</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~install: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill postinstall a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~postinstall: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill prepublish a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~prepublish: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~prepare: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing stage:runTopLevelLifecycles Completed in 81ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree a@1.0.0       // 依赖的结构</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree └─┬ b@2.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill saveTree   └── c@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install saveToDependencies</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb saving []</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb shrinkwrap skipping write for package.json because there were no changes.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle undefined~preshrinkwrap: undefined</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~shrinkwrap: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb shrinkwrap skipping write for package-lock.json because there were no changes.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info lifecycle a@1.0.0~postshrinkwrap: a@1.0.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm WARN a@1.0.0 No description</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm WARN a@1.0.0 No repository field.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm sill install printInstalled</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing audit submit Completed in 511ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm http fetch POST 200 https://registry.yarnpkg.com/-/npm/v1/security/audits/quick 512ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing audit body Completed in 2ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">audited 2 packages in 0.565s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">found 0 vulnerabilities</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm verb exit [ 0, true ]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm timing npm Completed in 906ms</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm info ok </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><button type="button" aria-label="Copy code to clipboard" title="Copy" class="copyButton_eDfN clean-btn"><span class="copyButtonIcons_W9eQ" aria-hidden="true"><svg class="copyButtonIcon_XEyF" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_i9w9" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div>]]></content:encoded>
             <category>node</category>
         </item>
         <item>
             <title><![CDATA[TimSort]]></title>
-            <link>http://localhost:3000/TimSort</link>
+            <link>https://blog.react.xn--fiqs8s/TimSort</link>
             <guid>/TimSort</guid>
             <pubDate>Wed, 22 Dec 2021 16:01:00 GMT</pubDate>
             <description><![CDATA[是一种混合稳定的排序算法，源自合并排序和插入排序，旨在较好地处理真实世界中各种各样的数据。]]></description>
@@ -30,7 +30,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[Merge-Sort]]></title>
-            <link>http://localhost:3000/Merge-Sort</link>
+            <link>https://blog.react.xn--fiqs8s/Merge-Sort</link>
             <guid>/Merge-Sort</guid>
             <pubDate>Mon, 20 Dec 2021 16:09:15 GMT</pubDate>
             <description><![CDATA[Timsort 是一种混合稳定的排序算法，源自合并排序和插入排序，旨在较好地处理真实世界中各种各样的数据。它使用了 Peter Mcllroy 的"乐观排序和信息理论上复杂性"中的技术，参见 第四届年度ACM-SIAM离散算法研讨会论文集，第467-474页，1993年。 它由 Tim Peters 在2002年实现，并应用于 Python编程语言。该算法通过查找已经排好序的数据子序列，在此基础上对剩余部分更有效地排序。 该算法通过不断地将特定子序列（称为一个 run ）与现有的 run 合并，直到满足某些条件为止来达成的更有效的排序。 从 2.3 版本起，Timsort 一直是 Python 的标准排序算法。 它还被 Java SE7[4], Android platform[5], GNU Octave,[6] 谷歌浏览器,[7] 和 Swift[8] 用于对非原始类型的数组排序。]]></description>
@@ -40,7 +40,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[two-eggs]]></title>
-            <link>http://localhost:3000/two-eggs</link>
+            <link>https://blog.react.xn--fiqs8s/two-eggs</link>
             <guid>/two-eggs</guid>
             <pubDate>Fri, 20 Mar 2020 18:07:38 GMT</pubDate>
             <description><![CDATA[http://datagenetics.com/blog/july22012/index.html]]></description>
@@ -50,7 +50,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[golang/Mutex]]></title>
-            <link>http://localhost:3000/golang-Mutex</link>
+            <link>https://blog.react.xn--fiqs8s/golang-Mutex</link>
             <guid>/golang-Mutex</guid>
             <pubDate>Thu, 26 Dec 2019 15:56:47 GMT</pubDate>
             <description><![CDATA[* Mutex 是互斥锁。]]></description>
@@ -59,7 +59,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[Javascript-decorators]]></title>
-            <link>http://localhost:3000/Javascript-decorators</link>
+            <link>https://blog.react.xn--fiqs8s/Javascript-decorators</link>
             <guid>/Javascript-decorators</guid>
             <pubDate>Thu, 12 Dec 2019 10:42:04 GMT</pubDate>
             <description><![CDATA[Decorators make it possible to annotate and modify classes and properties at design time.]]></description>
@@ -68,7 +68,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[co]]></title>
-            <link>http://localhost:3000/co</link>
+            <link>https://blog.react.xn--fiqs8s/co</link>
             <guid>/co</guid>
             <pubDate>Thu, 05 Dec 2019 18:24:31 GMT</pubDate>
             <description><![CDATA[read tree files in order:f1.txt, f2.txt, f3.txt]]></description>
@@ -77,7 +77,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[ios-input-bug]]></title>
-            <link>http://localhost:3000/ios-input-bug</link>
+            <link>https://blog.react.xn--fiqs8s/ios-input-bug</link>
             <guid>/ios-input-bug</guid>
             <pubDate>Wed, 28 Nov 2018 10:43:04 GMT</pubDate>
             <description><![CDATA[软键盘唤起后，页面的 fixed 元素将失效（ios认为用户更希望的是元素随着滚动而移动，也就是变成了 absolute 定位），既然变成了absolute，所以当页面超过一屏且滚动时，失效的 fixed 元素就会跟随滚动了。]]></description>
@@ -87,7 +87,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[input_iview]]></title>
-            <link>http://localhost:3000/input-iview</link>
+            <link>https://blog.react.xn--fiqs8s/input-iview</link>
             <guid>/input-iview</guid>
             <pubDate>Sat, 29 Sep 2018 18:58:12 GMT</pubDate>
             <description><![CDATA[组件如何实现数据双向绑定?]]></description>
@@ -97,7 +97,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[gulp]]></title>
-            <link>http://localhost:3000/mygulp</link>
+            <link>https://blog.react.xn--fiqs8s/mygulp</link>
             <guid>/mygulp</guid>
             <pubDate>Thu, 26 Jul 2018 14:32:21 GMT</pubDate>
             <description><![CDATA[输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。]]></description>
@@ -107,7 +107,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[国内有名的前端技术团队技术blog]]></title>
-            <link>http://localhost:3000/front-team</link>
+            <link>https://blog.react.xn--fiqs8s/front-team</link>
             <guid>/front-team</guid>
             <pubDate>Wed, 18 Jul 2018 15:08:26 GMT</pubDate>
             <description><![CDATA[淘宝前端团队]]></description>
@@ -115,7 +115,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[webpack升级]]></title>
-            <link>http://localhost:3000/webpack</link>
+            <link>https://blog.react.xn--fiqs8s/webpack</link>
             <guid>/webpack</guid>
             <pubDate>Wed, 04 Jul 2018 15:03:41 GMT</pubDate>
             <description><![CDATA[最近朋友推荐我了解一个开源项目的升级,webpack从1.14.0 升级到目前最新的 v4.14.0]]></description>
@@ -126,7 +126,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[数据存储]]></title>
-            <link>http://localhost:3000/storage</link>
+            <link>https://blog.react.xn--fiqs8s/storage</link>
             <guid>/storage</guid>
             <pubDate>Wed, 27 Jun 2018 10:44:09 GMT</pubDate>
             <description><![CDATA[Cookie]]></description>
@@ -134,7 +134,7 @@ npm install --loglevel silly 2&gt;&amp;1 | tee log.txt (输出安装依赖信息
         </item>
         <item>
             <title><![CDATA[跨域技术]]></title>
-            <link>http://localhost:3000/cors</link>
+            <link>https://blog.react.xn--fiqs8s/cors</link>
             <guid>/cors</guid>
             <pubDate>Thu, 21 Jun 2018 14:45:29 GMT</pubDate>
             <description><![CDATA[图ping]]></description>
@@ -145,7 +145,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[Element-Clickoutside]]></title>
-            <link>http://localhost:3000/element-clickoutside</link>
+            <link>https://blog.react.xn--fiqs8s/element-clickoutside</link>
             <guid>/element-clickoutside</guid>
             <pubDate>Thu, 14 Jun 2018 11:10:34 GMT</pubDate>
             <description><![CDATA[在使用Element 组件库的时候，可以发现点击非弹框对象的时候会触发弹框隐藏事件，但是在对应的封装包中却发现原来自定义了指令，进行管理点击非当前元素的事件触发，如图:]]></description>
@@ -153,7 +153,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[How to write your own Virtual DOM]]></title>
-            <link>http://localhost:3000/Virtual-DOM</link>
+            <link>https://blog.react.xn--fiqs8s/Virtual-DOM</link>
             <guid>/Virtual-DOM</guid>
             <pubDate>Wed, 13 Jun 2018 14:26:50 GMT</pubDate>
             <description><![CDATA[引用文章链接]]></description>
@@ -161,7 +161,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[js 冒泡和捕获事件]]></title>
-            <link>http://localhost:3000/captch-bubbling</link>
+            <link>https://blog.react.xn--fiqs8s/captch-bubbling</link>
             <guid>/captch-bubbling</guid>
             <pubDate>Wed, 06 Jun 2018 11:32:22 GMT</pubDate>
             <description><![CDATA[事件流描述的是从页面中接收事件的顺序。IE和Netscape开发团队提出了完全相反的事件流的概念。]]></description>
@@ -170,7 +170,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[CommonJs规范]]></title>
-            <link>http://localhost:3000/CommonJs</link>
+            <link>https://blog.react.xn--fiqs8s/CommonJs</link>
             <guid>/CommonJs</guid>
             <pubDate>Tue, 05 Jun 2018 11:43:06 GMT</pubDate>
             <description><![CDATA[概述]]></description>
@@ -178,7 +178,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[Symbol.iterator]]></title>
-            <link>http://localhost:3000/Symbol-iterator</link>
+            <link>https://blog.react.xn--fiqs8s/Symbol-iterator</link>
             <guid>/Symbol-iterator</guid>
             <pubDate>Fri, 01 Jun 2018 16:15:16 GMT</pubDate>
             <description><![CDATA[Symbol.iterator 为每一个对象定义了默认的迭代器。该迭代器可以被 for...of 循环使用。]]></description>
@@ -186,7 +186,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[订阅者模式]]></title>
-            <link>http://localhost:3000/subscribe-mode</link>
+            <link>https://blog.react.xn--fiqs8s/subscribe-mode</link>
             <guid>/subscribe-mode</guid>
             <pubDate>Wed, 30 May 2018 17:49:58 GMT</pubDate>
             <description><![CDATA[订阅者模式涉及三个对象：发布者、主题对象、订阅者，三个对象间的是一对多的关系，每当主题对象状态发生改变时，其相关依赖对象都会得到通知，并被自动更新]]></description>
@@ -194,7 +194,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[从输入URL到页面加载完成的过程中都发生了什么]]></title>
-            <link>http://localhost:3000/input-url</link>
+            <link>https://blog.react.xn--fiqs8s/input-url</link>
             <guid>/input-url</guid>
             <pubDate>Mon, 28 May 2018 10:38:20 GMT</pubDate>
             <description><![CDATA[1. browser checks cache; if requested object is in cache and is fresh, skip to #9(浏览器检查缓存，若缓存中存储着要请求的内容，并且内容是最新的，直接跳转到第9步)]]></description>
@@ -202,7 +202,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[闭包]]></title>
-            <link>http://localhost:3000/closure-js</link>
+            <link>https://blog.react.xn--fiqs8s/closure-js</link>
             <guid>/closure-js</guid>
             <pubDate>Mon, 21 May 2018 11:50:48 GMT</pubDate>
             <description><![CDATA[闭包：当某个函数被调用时,会创建一个执行环境及相应的作用域链。然后,使用arguments和其他命名参数的值来初始化函数的活动对象。但是在作用域链中,外部函数的活动对象始终处于第二位,外部函数的活动对象处于第三位，...直至作为作用域链终点的全局执行环境。]]></description>
@@ -210,7 +210,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[冒泡排序和快速排序]]></title>
-            <link>http://localhost:3000/quickSort</link>
+            <link>https://blog.react.xn--fiqs8s/quickSort</link>
             <guid>/quickSort</guid>
             <pubDate>Tue, 15 May 2018 15:23:40 GMT</pubDate>
             <description><![CDATA[依次比较相邻的两个元素，如果后一个小于前一个，则交换，这样从头到尾一次，就将最大的放到了末尾。]]></description>
@@ -218,7 +218,7 @@ Comet 实现的是HTTP流。流不同于上述两种轮询,因为它在页面的
         </item>
         <item>
             <title><![CDATA[javascript 创建对象]]></title>
-            <link>http://localhost:3000/createObject</link>
+            <link>https://blog.react.xn--fiqs8s/createObject</link>
             <guid>/createObject</guid>
             <pubDate>Fri, 11 May 2018 14:31:59 GMT</pubDate>
             <description><![CDATA[工厂模式]]></description>
@@ -227,7 +227,7 @@ constructor 属性也是共享的,也可以通过实例共享。</p></blockquote
         </item>
         <item>
             <title><![CDATA[git-reset]]></title>
-            <link>http://localhost:3000/git-reset</link>
+            <link>https://blog.react.xn--fiqs8s/git-reset</link>
             <guid>/git-reset</guid>
             <pubDate>Thu, 10 May 2018 11:54:29 GMT</pubDate>
             <description><![CDATA[三棵树]]></description>
@@ -236,7 +236,7 @@ constructor 属性也是共享的,也可以通过实例共享。</p></blockquote
         </item>
         <item>
             <title><![CDATA[throttle && debounce]]></title>
-            <link>http://localhost:3000/throttle-debounce</link>
+            <link>https://blog.react.xn--fiqs8s/throttle-debounce</link>
             <guid>/throttle-debounce</guid>
             <pubDate>Thu, 10 May 2018 11:00:50 GMT</pubDate>
             <description><![CDATA[OverView]]></description>
@@ -244,7 +244,7 @@ constructor 属性也是共享的,也可以通过实例共享。</p></blockquote
         </item>
         <item>
             <title><![CDATA[Object.defineProperty]]></title>
-            <link>http://localhost:3000/Object-defineProperty</link>
+            <link>https://blog.react.xn--fiqs8s/Object-defineProperty</link>
             <guid>/Object-defineProperty</guid>
             <pubDate>Thu, 10 May 2018 10:57:23 GMT</pubDate>
             <description><![CDATA[方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。]]></description>

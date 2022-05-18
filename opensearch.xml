@@ -4,8 +4,8 @@
   <ShortName>My Site</ShortName>
   <Description>Search My Site</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://localhost:3000/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://localhost:3000/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="http://localhost:3000/opensearch.xml" />
-  <moz:SearchForm>http://localhost:3000/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://blog.react.xn--fiqs8s/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://blog.react.xn--fiqs8s/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://blog.react.xn--fiqs8s/opensearch.xml" />
+  <moz:SearchForm>https://blog.react.xn--fiqs8s/</moz:SearchForm>
 </OpenSearchDescription>
