@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[9702],{5230:function(a){a.exports=JSON.parse('{"allTagsPath":"/tags","name":"javascript","count":2,"permalink":"/tags/javascript"}')}}]);
