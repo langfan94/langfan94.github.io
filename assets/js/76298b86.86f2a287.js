@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[1125],{3858:a=>{a.exports=JSON.parse('{"label":"golang","permalink":"/tags/golang","allTagsPath":"/tags","count":2}')}}]);
