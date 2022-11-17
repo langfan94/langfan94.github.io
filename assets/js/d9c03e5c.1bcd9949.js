@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[6447],{9174:a=>{a.exports=JSON.parse('{"label":"react","permalink":"/tags/react","allTagsPath":"/tags","count":1}')}}]);

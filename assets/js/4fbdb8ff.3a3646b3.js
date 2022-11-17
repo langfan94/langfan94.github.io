@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[4695],{671:s=>{s.exports=JSON.parse('{"label":"git","permalink":"/tags/git","allTagsPath":"/tags","count":1}')}}]);

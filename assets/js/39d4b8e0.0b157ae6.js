@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[7120],{8933:a=>{a.exports=JSON.parse('{"label":"generator\uff0c javascript","permalink":"/tags/generator\uff0c-javascript","allTagsPath":"/tags","count":1}')}}]);

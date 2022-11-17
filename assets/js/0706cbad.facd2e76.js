@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[8254],{1606:s=>{s.exports=JSON.parse('{"permalink":"/tags/\u8bbe\u8ba1\u6a21\u5f0f","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

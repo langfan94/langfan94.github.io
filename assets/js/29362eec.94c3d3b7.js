@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus=self.webpackChunkdocusaurus||[]).push([[9765],{5270:s=>{s.exports=JSON.parse('{"label":"javascript\uff0c jsonp","permalink":"/tags/javascript\uff0c-jsonp","allTagsPath":"/tags","count":1}')}}]);
